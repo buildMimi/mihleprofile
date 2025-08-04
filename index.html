@@ -1,0 +1,530 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mihle Siguqu | Problem-Solver</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Using Inter font for a clean, professional look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-gray-950 text-gray-200;
+        }
+
+        /* Animated background for the header */
+        .header-bg-gradient {
+            background: linear-gradient(270deg, #1A202C, #2D3748, #1A202C);
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+        }
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Neon effect for headings and accents */
+        .neon-text {
+            text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #008080;
+        }
+
+        /* Frosted glass effect */
+        .glass-card {
+            background-color: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Custom scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #6C63FF;
+            border-radius: 10px;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #8A78FF;
+            }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-950 text-gray-200">
+
+    <!-- Header Section -->
+    <header class="header-bg-gradient text-white pt-16 pb-32 text-center relative z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#00FFFF] to-[#FF6584] opacity-10 blur-3xl -z-10"></div>
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center md:justify-between gap-12">
+            <div class="flex-shrink-0 relative">
+                <img src="PortPic.jpeg" alt="Mihle Siguqu" class="w-48 h-48 rounded-full object-cover border-4 border-[#00FFFF] shadow-2xl transition-transform duration-300 hover:scale-105">
+                <div class="absolute inset-0 rounded-full border-4 border-[#FF6584] animate-pulse"></div>
+            </div>
+            <div class="md:max-w-xl text-center md:text-left">
+                <h1 class="text-4xl md:text-6xl font-bold mb-2 leading-tight neon-text">Mihle Siguqu</h1>
+                <p class="text-xl md:text-2xl text-[#FF6584] font-medium mb-4">Full-Stack Developer, Seeking a Learnership</p>
+                <p class="text-lg text-gray-400 mb-6">I architect innovative solutions, write clean code, and turn complex problems into elegant applications. I am a passionate and dedicated candidate ready to bring my skills to a learnership and grow with a forward-thinking team.</p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="#projects" class="bg-[#00FFFF] text-gray-900 px-6 py-3 rounded-full font-bold shadow-md transition-all duration-300 hover:bg-[#FF6584] hover:text-white transform hover:-translate-y-1">View My Work</a>
+                    <a href="#contact" class="bg-transparent border-2 border-[#FF6584] text-[#FF6584] px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-[#FF6584] hover:text-white transform hover:-translate-y-1">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-10">
+        <!-- About Section -->
+        <section id="about" class="container mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#00FFFF] after:rounded-full">About Me</h2>
+            <div class="glass-card p-8 rounded-2xl border border-gray-700">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <!-- Image (Left) -->
+                    <div class="md:w-1/3 flex justify-center">
+                        <img src="AboutPic4.jpg"
+                             alt="Mihle Siguqu"
+                             class="w-48 h-48 rounded-full object-cover border-4 border-[#00FFFF] shadow-2xl transition-transform duration-300 hover:scale-105">
+                    </div>
+
+                    <!-- Text Content (Right) -->
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-bold text-[#FF6584] mb-4">From Durban with Code</h3>
+                        <p class="text-gray-400 mb-4">
+                            I’m Mihle Siguqu, a final-year Information Communication Technology student specializing in Application Development at the Durban University of Technology. My journey into tech began with curiosity and has grown into a passion for building scalable, user-friendly digital solutions. I’ve developed a solid foundation in full-stack development, cloud computing, and user-centered design, with hands-on experience in C#, Java, SQL, and JavaScript. My portfolio includes impactful projects like a Clinic Management System and a tutoring platform—both designed to solve real-world problems through innovative web applications.
+                            Beyond the classroom, I’ve pursued certifications in Generative AI and Azure AI Fundamentals through Microsoft, and explored cybersecurity and Linux fundamentals via Cisco. These experiences reflect my commitment to continuous growth in an ever-evolving tech landscape. I believe technology should empower people, and I’m excited to share my knowledge, collaborate on meaningful projects, and help others navigate the world of software development with confidence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Skills Section -->
+        <section id="skills" class="container mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#00FFFF] after:rounded-full">My Skills</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold mb-4 text-[#FF6584]">Technical Skills</h3>
+                    <div class="space-y-4">
+                        <!-- Skill Bar component -->
+                        <div class="group">
+                            <div class="flex justify-between mb-1 text-gray-200">
+                                <span>C#</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <!-- ... other skill bars ... -->
+                        <div class="group">
+                            <div class="flex justify-between mb-1 text-gray-200">
+                                <span>Java</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between mb-1 text-gray-200">
+                                <span>JavaScript</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between mb-1 text-gray-200">
+                                <span>SQL</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between mb-1 text-gray-200">
+                                <span>CSS</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between mb-1 text-gray-200">
+                                <span>HTML</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold mb-4 text-[#FF6584]">Professional Skills</h3>
+                    <div class="space-y-4">
+                        <div class="group">
+                            <div class="flex justify-between mb-1 text-gray-200">
+                                <span>Problem Solving</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between mb-1 text-gray-200">
+                                <span>Teamwork</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between mb-1 text-gray-200">
+                                <span>Communication</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between mb-1 text-gray-200">
+                                <span>Project Management</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 82%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="container mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#00FFFF] after:rounded-full">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Clinic Project Card -->
+                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
+                    <div class="h-52 flex items-center justify-center text-gray-400 font-bold p-4 bg-gray-800">
+                        Click "View Gallery" to see screenshots
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-[#FF6584]">Clinic Management System</h3>
+                        <p class="text-gray-400 mb-4">Full-stack solution for DUT Clinic enabling appointment booking, medical form submissions, and patient reviews.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">C#</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">SQL</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">Azure</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">CSS</span>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-[#00FFFF] to-[#FF6584] text-gray-900 py-3 rounded-full font-bold shadow-md transition-all duration-300 hover:scale-105 view-gallery-btn">View Gallery</button>
+                    </div>
+                </div>
+
+                <!-- Tutoring Project Card -->
+                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
+                    <div class="h-52 flex items-center justify-center text-gray-400 font-bold p-4 bg-gray-800">
+                        Visit the live website
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-[#FF6584]">Tutoring Website Platform</h3>
+                        <p class="text-gray-400 mb-4">Connecting students with tutors for STEM subjects with user authentication and session scheduling.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">JavaScript</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">CSS</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">HTML</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">Java</span>
+                        </div>
+                        <a href="https://buildmimi.github.io/TutoringDubeStem/" class="block w-full text-center bg-gradient-to-r from-[#00FFFF] to-[#FF6584] text-gray-900 py-3 rounded-full font-bold shadow-md transition-all duration-300 hover:scale-105" target="_blank">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Web Dev Business Card -->
+                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
+                    <div class="h-52 flex items-center justify-center text-gray-400 font-bold p-4 bg-gray-800">
+                        Visit the live website
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-[#FF6584]">Web Development Business</h3>
+                        <p class="text-gray-400 mb-4">Custom web applications for local clients including e-commerce sites and booking systems.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">HTML</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">CSS</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">Java</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">Spring Boot</span>
+                        </div>
+                        <a href="https://buildmimi.github.io/todo/" class="block w-full text-center bg-gradient-to-r from-[#00FFFF] to-[#FF6584] text-gray-900 py-3 rounded-full font-bold shadow-md transition-all duration-300 hover:scale-105" target="_blank">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interests Section -->
+        <section id="interests" class="container mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#00FFFF] after:rounded-full">My Interests</h2>
+            <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">When I'm not coding, these are the things that keep me inspired and energized.</p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <!-- Interest Item: Games -->
+                <div class="glass-card p-6 rounded-2xl text-center w-36 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-[#FF6584]">
+                    <div class="text-4xl text-[#00FFFF] mb-2"><i class="fas fa-gamepad"></i></div>
+                    <div class="font-semibold">Games</div>
+                </div>
+                <!-- Interest Item: Gadgets -->
+                <div class="glass-card p-6 rounded-2xl text-center w-36 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-[#FF6584]">
+                    <div class="text-4xl text-[#00FFFF] mb-2"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="font-semibold">Gadgets</div>
+                </div>
+                <!-- Interest Item: AI -->
+                <div class="glass-card p-6 rounded-2xl text-center w-36 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-[#FF6584]">
+                    <div class="text-4xl text-[#00FFFF] mb-2"><i class="fas fa-robot"></i></div>
+                    <div class="font-semibold">AI</div>
+                </div>
+                <!-- Interest Item: Chess -->
+                <div class="glass-card p-6 rounded-2xl text-center w-36 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-[#FF6584]">
+                    <div class="text-4xl text-[#00FFFF] mb-2"><i class="fas fa-chess"></i></div>
+                    <div class="font-semibold">Chess</div>
+                </div>
+                <!-- Interest Item: Music -->
+                <div class="glass-card p-6 rounded-2xl text-center w-36 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-[#FF6584]">
+                    <div class="text-4xl text-[#00FFFF] mb-2"><i class="fas fa-music"></i></div>
+                    <div class="font-semibold">Music</div>
+                </div>
+                <!-- Interest Item: Travel -->
+                <div class="glass-card p-6 rounded-2xl text-center w-36 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-[#FF6584]">
+                    <div class="text-4xl text-[#00FFFF] mb-2"><i class="fas fa-plane"></i></div>
+                    <div class="font-semibold">Travel</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="container mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#00FFFF] after:rounded-full">My Certificates</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                <!-- Certificate 1 -->
+                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
+                    <img src="fund.jpeg" alt="Azure AI Fundamentals" class="w-full h-44 object-cover">
+                    <div class="p-4 text-center font-semibold text-gray-200">Azure AI Fundamentals</div>
+                </div>
+                <!-- Certificate 2 -->
+                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
+                    <img src="Gen.jpeg" alt="Generative AI" class="w-full h-44 object-cover">
+                    <div class="p-4 text-center font-semibold text-gray-200">Generative AI</div>
+                </div>
+                <!-- Certificate 3 -->
+                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
+                    <img src="cyber.jpeg" alt="Cybersecurity Essentials" class="w-full h-44 object-cover">
+                    <div class="p-4 text-center font-semibold text-gray-200">Cybersecurity</div>
+                </div>
+                <!-- Certificate 4 -->
+                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
+                    <img src="linux.jpeg" alt="Linux Unhatched" class="w-full h-44 object-cover">
+                    <div class="p-4 text-center font-semibold text-gray-200">Linux Unhatched</div>
+                </div>
+                <!-- Certificate 5 -->
+                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
+                    <img src="pack.jpeg" alt="Packet Tracer" class="w-full h-44 object-cover">
+                    <div class="p-4 text-center font-semibold text-gray-200">Linux Unhatched</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="container mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#00FFFF] after:rounded-full">My Resume</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Education -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-[#FF6584]">Education</h3>
+                    <div class="glass-card p-6 rounded-xl mb-6">
+                        <h4 class="text-xl font-semibold text-white">Diploma in ICT (Application Development)</h4>
+                        <p class="text-[#00FFFF] font-bold mt-1">Durban University of Technology</p>
+                        <p class="text-gray-400 mt-2">2023 - Present</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h4 class="text-xl font-semibold text-white">Matriculation</h4>
+                        <p class="text-[#00FFFF] font-bold mt-1">St Matthews High School</p>
+                        <p class="text-gray-400 mt-2">Graduated 2020</p>
+                    </div>
+                </div>
+                <!-- Experience -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-[#FF6584]">Experience</h3>
+                    <div class="glass-card p-6 rounded-xl mb-6">
+                        <h4 class="text-xl font-semibold text-white">Office Administrator</h4>
+                        <p class="text-[#00FFFF] font-bold mt-1">Johan Plumbers & General Services</p>
+                        <p class="text-gray-400 mt-2">Jan 2021 - Jun 2022</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-400 mt-3">
+                            <li>Managed workflow sheets and dispatched tasks</li>
+                            <li>Handled client communications and invoices</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h4 class="text-xl font-semibold text-white">Food Server</h4>
+                        <p class="text-[#00FFFF] font-bold mt-1">Bootlegger Coffee Company</p>
+                        <p class="text-gray-400 mt-2">Sep - Dec 2022</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-400 mt-3">
+                            <li>Provided customer service in fast-paced environment</li>
+                            <li>Managed transactions and resolved inquiries</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container mx-auto px-4 py-16 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-[#FF6584]">Let's Connect</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-12">Have a project in mind or want to chat about tech opportunities? I'm always open to discussing new ideas and collaborations.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Email Card -->
+                <div class="glass-card p-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00FFFF]">
+                    <div class="text-4xl text-[#00FFFF] mb-4"><i class="fas fa-envelope"></i></div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Email Me</h3>
+                    <p class="text-gray-400">For project inquiries or job opportunities</p>
+                    <a href="mailto:msiguqu@gmail.com" class="block mt-4 text-[#FF6584] font-semibold hover:underline">msiguqu@gmail.com</a>
+                </div>
+                <!-- Call/SMS Card -->
+                <div class="glass-card p-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00FFFF]">
+                    <div class="text-4xl text-[#00FFFF] mb-4"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Call or Text</h3>
+                    <p class="text-gray-400">Available Mon-Fri, 9AM-5PM</p>
+                    <a href="tel:+27635321092" class="block mt-4 text-[#FF6584] font-semibold hover:underline">+27 63 532 1092</a>
+                </div>
+                <!-- LinkedIn Card -->
+                <div class="glass-card p-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00FFFF]">
+                    <div class="text-4xl text-[#00FFFF] mb-4"><i class="fab fa-linkedin"></i></div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Professional Profile</h3>
+                    <p class="text-gray-400">Let's connect on LinkedIn</p>
+                    <a href="https://linkedin.com/in/mihle-siguqu" target="_blank" class="block mt-4 text-[#FF6584] font-semibold hover:underline">Visit My Profile</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-12 text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-4 text-[#00FFFF]">Let's Build Something Amazing</h2>
+                <p class="text-gray-400 mb-6">Have a project in mind or want to chat about tech? I'd love to hear from you!</p>
+                <div class="flex justify-center gap-6 text-2xl mb-6">
+                    <a href="mailto:msiguqu@gmail.com" class="text-gray-400 hover:text-[#00FFFF] transition-colors duration-300"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+27635321092" class="text-gray-400 hover:text-[#00FFFF] transition-colors duration-300"><i class="fas fa-phone"></i></a>
+                    <a href="https://linkedin.com/in/mihle-siguqu" target="_blank" class="text-gray-400 hover:text-[#00FFFF] transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-[#00FFFF] transition-colors duration-300"><i class="fab fa-github"></i></a>
+                </div>
+                <p class="text-gray-500 text-sm">&copy; 2024 Mihle Siguqu. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Clinic Project Gallery Modal -->
+    <div id="galleryModal" class="fixed inset-0 z-[100] bg-black bg-opacity-90 hidden flex items-center justify-center p-4">
+        <span class="absolute top-6 right-8 text-white text-5xl font-bold cursor-pointer transition-colors duration-300 hover:text-[#FF6584]" onclick="closeModal()">&times;</span>
+        <div class="relative w-full max-w-5xl h-full flex items-center justify-center">
+            <button id="prevBtn" class="absolute left-4 md:left-8 text-white text-4xl p-2 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 transition-all duration-300">&lt;</button>
+            <img class="max-w-full max-h-[90vh] object-contain" id="galleryImage" src="">
+            <button id="nextBtn" class="absolute right-4 md:right-8 text-white text-4xl p-2 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 transition-all duration-300">&gt;</button>
+        </div>
+    </div>
+
+    <!-- JavaScript for the gallery functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Corrected image paths relative to the HTML file's location
+            const clinicImages = [
+                "images/Clinic.jpg",
+                "images/C1.jpg",
+                "images/C2.jpg",
+                "images/C3.jpg",
+                "images/C4.jpg",
+                "images/C5.jpg",
+                "images/C6.jpg"
+            ];
+
+            // Modal elements
+            const modal = document.getElementById("galleryModal");
+            const modalImg = document.getElementById("galleryImage");
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            let currentImageIndex = 0;
+
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+            if (modal && modalImg && prevBtn && nextBtn) {
+            document.querySelectorAll(".view-gallery-btn").forEach(btn => {
+            window.closeModal = function () {
+                    btn.addEventListener("click", function () {
+                        if (clinicImages.length > 0) {
+                            currentImageIndex = 0; // Reset to the first image when gallery is opened
+                            modal.classList.remove('hidden');
+                            modal.classList.add('flex');
+                            modalImg.src = clinicImages[currentImageIndex];
+                        }
+                    });
+                });
+
+                prevBtn.addEventListener("click", function () {
+                    currentImageIndex = (currentImageIndex - 1 + clinicImages.length) % clinicImages.length;
+                    modalImg.src = clinicImages[currentImageIndex];
+                });
+
+                nextBtn.addEventListener("click", function () {
+                    currentImageIndex = (currentImageIndex + 1) % clinicImages.length;
+                    modalImg.src = clinicImages[currentImageIndex];
+                });
+
+                window.addEventListener('keydown', function (e) {
+                    if (modal.classList.contains('flex')) {
+                        if (e.key === 'ArrowLeft') {
+                            prevBtn.click();
+                        } else if (e.key === 'ArrowRight') {
+                            nextBtn.click();
+                        } else if (e.key === 'Escape') {
+                            closeModal();
+                        }
+                    }
+                });
+
+                modal.addEventListener('click', function (e) {
+                    if (e.target === modal) {
+                        closeModal();
+                    }
+                });
+
+            } else {
+                console.error("Could not find all required gallery elements");
+            }
+        });
+    </script>
+
+</body>
+</html>
