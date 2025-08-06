@@ -457,79 +457,75 @@
         </div>
     </div>
 
-    <!-- JavaScript for the gallery functionality -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Corrected image paths relative to the HTML file's location
-            const clinicImages = [
-                "Clinic.jpg",
-                "C1.jpg",
-                "C2.jpg",
-                "C3.jpg",
-                "C4.jpg",
-                "C5.jpg",
-                "C6.jpg"
-            ];
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const clinicImages = [
+            "Clinic.jpg",
+            "C1.jpg",
+            "C2.jpg",
+            "C3.jpg",
+            "C4.jpg",
+            "C5.jpg",
+            "C6.jpg"
+        ];
 
-            // Modal elements
-            const modal = document.getElementById("galleryModal");
-            const modalImg = document.getElementById("galleryImage");
-            const prevBtn = document.getElementById("prevBtn");
-            const nextBtn = document.getElementById("nextBtn");
-            let currentImageIndex = 0;
+        const modal = document.getElementById("galleryModal");
+        const modalImg = document.getElementById("galleryImage");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        let currentImageIndex = 0;
 
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
 
-            if (modal && modalImg && prevBtn && nextBtn) {
-            document.querySelectorAll(".view-gallery-btn").forEach(btn => {
-            window.closeModal = function () {
-                    btn.addEventListener("click", function () {
-                        if (clinicImages.length > 0) {
-                            currentImageIndex = 0; // Reset to the first image when gallery is opened
-                            modal.classList.remove('hidden');
-                            modal.classList.add('flex');
-                            modalImg.src = clinicImages[currentImageIndex];
-                        }
-                    });
-                });
-
-                prevBtn.addEventListener("click", function () {
-                    currentImageIndex = (currentImageIndex - 1 + clinicImages.length) % clinicImages.length;
+        document.querySelectorAll(".view-gallery-btn").forEach(btn => {
+            btn.addEventListener("click", function () {
+                if (clinicImages.length > 0) {
+                    currentImageIndex = 0;
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
                     modalImg.src = clinicImages[currentImageIndex];
-                });
+                }
+            });
+        });
 
-                nextBtn.addEventListener("click", function () {
-                    currentImageIndex = (currentImageIndex + 1) % clinicImages.length;
-                    modalImg.src = clinicImages[currentImageIndex];
-                });
+        prevBtn.addEventListener("click", function () {
+            currentImageIndex = (currentImageIndex - 1 + clinicImages.length) % clinicImages.length;
+            modalImg.src = clinicImages[currentImageIndex];
+        });
 
-                window.addEventListener('keydown', function (e) {
-                    if (modal.classList.contains('flex')) {
-                        if (e.key === 'ArrowLeft') {
-                            prevBtn.click();
-                        } else if (e.key === 'ArrowRight') {
-                            nextBtn.click();
-                        } else if (e.key === 'Escape') {
-                            closeModal();
-                        }
-                    }
-                });
+        nextBtn.addEventListener("click", function () {
+            currentImageIndex = (currentImageIndex + 1) % clinicImages.length;
+            modalImg.src = clinicImages[currentImageIndex];
+        });
 
-                modal.addEventListener('click', function (e) {
-                    if (e.target === modal) {
-                        closeModal();
-                    }
-                });
-
-            } else {
-                console.error("Could not find all required gallery elements");
+        window.addEventListener('keydown', function (e) {
+            if (modal.classList.contains('flex')) {
+                if (e.key === 'ArrowLeft') {
+                    prevBtn.click();
+                } else if (e.key === 'ArrowRight') {
+                    nextBtn.click();
+                } else if (e.key === 'Escape') {
+                    closeModal();
+                }
             }
         });
-    </script>
+
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        window.closeModal = function () {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        };
+    });
+</script>
 
 </body>
 </html>
+
 
 
