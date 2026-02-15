@@ -1,532 +1,932 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mihle Siguqu | Problem-Solver</title>
+    <title>Mihle Siguqu | Fullstack Developer</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enables class-based dark mode
+            theme: {
+                extend: {
+                    colors: {
+                        // Day Mode Colors (Solar)
+                        solar: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            text: '#334155',
+                            accent: '#0ea5e9', // Sky Blue
+                            gold: '#d97706'
+                        },
+                        // Night Mode Colors (Lunar)
+                        lunar: {
+                            bg: '#0f172a', // Slate 900
+                            card: '#1e293b', // Slate 800
+                            text: '#e2e8f0',
+                            accent: '#2dd4bf', // Teal
+                            glow: '#8b5cf6'  // Violet
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Using Inter font for a clean, professional look */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
         body {
             font-family: 'Inter', sans-serif;
-            @apply bg-gray-950 text-gray-200;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
-        /* Animated background for the header */
-        .header-bg-gradient {
-            background: linear-gradient(270deg, #1A202C, #2D3748, #1A202C);
-            background-size: 400% 400%;
-            animation: gradient-animation 15s ease infinite;
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
         }
 
-        @keyframes gradient-animation {
-            0% {
-                background-position: 0% 50%;
-            }
+        /* --- Dynamic Backgrounds --- */
 
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+        /* Day Background */
+        .bg-day {
+            background-color: #f8fafc;
+            background-image: radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.1) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(217, 119, 6, 0.1) 0px, transparent 50%);
         }
 
-        /* Neon effect for headings and accents */
-        .neon-text {
-            text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #008080;
+        /* Night Background */
+        .dark .bg-day {
+            background-color: #020617;
+            background-image: radial-gradient(circle at 50% 50%, rgba(30, 41, 59, 1), transparent 90%), radial-gradient(at 0% 0%, rgba(45, 212, 191, 0.15) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
         }
 
-        /* Frosted glass effect */
+        /* --- Glass Cards --- */
         .glass-card {
-            background-color: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            /* Day Style */
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
 
-        /* Custom scrollbar styling */
+        .dark .glass-card {
+            /* Night Style */
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .dark .glass-card:hover {
+            box-shadow: 0 10px 30px rgba(45, 212, 191, 0.1);
+            border-color: rgba(45, 212, 191, 0.3);
+        }
+
+        /* --- Text Gradients --- */
+        .text-gradient {
+            background: linear-gradient(135deg, #0ea5e9, #2563eb); /* Blue for Day */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .dark .text-gradient {
+            background: linear-gradient(135deg, #2dd4bf, #8b5cf6); /* Teal/Violet for Night */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* --- Scrollbar --- */
         ::-webkit-scrollbar {
             width: 8px;
         }
 
+        .dark ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
         ::-webkit-scrollbar-track {
-            background: #1f2937;
+            background: #f1f5f9;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #6C63FF;
-            border-radius: 10px;
+            background: #cbd5e1;
+            border-radius: 4px;
         }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-day text-solar-text dark:text-lunar-text transition-colors duration-500">
 
-            ::-webkit-scrollbar-thumb:hover {
-                background: #8A78FF;
+    <!-- Theme Logic: GMT+2 Auto Sense -->
+    <script>
+        function checkGMT2Time() {
+            const now = new Date();
+            // Calculate GMT+2 time
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const gmtPlus2 = new Date(utc + (3600000 * 2));
+            const hour = gmtPlus2.getHours();
+
+            // Day is 06:00 to 18:00
+            const isDay = hour >= 6 && hour < 18;
+
+            // Only set if user hasn't manually overridden (optional, here we force it on load for the "auto-sense" effect)
+            if (isDay) {
+                document.documentElement.classList.remove('dark');
+            } else {
+                document.documentElement.classList.add('dark');
             }
 
+            console.log(`Current GMT+2 Hour: ${hour}. Setting theme to: ${isDay ? 'Day' : 'Night'}`);
+        }
 
+        // Run immediately
+        checkGMT2Time();
 
-    </style>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body class="bg-gray-950 text-gray-200">
+        // Manual Toggle Function
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+        }
+    </script>
 
-    <!-- Header Section -->
-    <header class="header-bg-gradient text-white pt-16 pb-32 text-center relative z-10">
-        <div class="absolute inset-0 bg-gradient-to-br from-[#00FFFF] to-[#FF6584] opacity-10 blur-3xl -z-10"></div>
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center md:justify-between gap-12">
-            <div class="flex-shrink-0 relative">
-                <img src="PortPic.jpeg" alt="Mihle Siguqu" class="w-48 h-48 rounded-full object-cover border-4 border-[#00FFFF] shadow-2xl transition-transform duration-300 hover:scale-105">
-                <div class="absolute inset-0 rounded-full border-4 border-[#FF6584] animate-pulse"></div>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="absolute inset-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-white/5 transition-colors duration-500"></div>
+        <div class="container mx-auto px-6 py-4 relative flex justify-between items-center">
+            <a href="#" class="text-2xl font-serif font-bold text-slate-800 dark:text-white tracking-wide transition-colors">
+                MS<span class="text-solar-accent dark:text-lunar-accent">.</span>
+            </a>
+
+            <div class="flex items-center gap-8">
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600 dark:text-slate-300 tracking-widest uppercase">
+                    <a href="#about" class="hover:text-solar-accent dark:hover:text-lunar-accent transition-colors">About</a>
+                    <a href="#skills" class="hover:text-solar-accent dark:hover:text-lunar-accent transition-colors">Skills</a>
+                    <a href="#projects" class="hover:text-solar-accent dark:hover:text-lunar-accent transition-colors">Work</a>
+                    <a href="#contact" class="hover:text-solar-accent dark:hover:text-lunar-accent transition-colors">Contact</a>
+                </div>
+
+                <!-- Theme Toggle Button -->
+                <button onclick="toggleTheme()" class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-yellow-400 hover:scale-110 transition-all shadow-sm border border-slate-200 dark:border-slate-700">
+                    <!-- Sun Icon (Hidden in Dark Mode) -->
+                    <i class="fas fa-sun block dark:hidden text-orange-500"></i>
+                    <!-- Moon Icon (Hidden in Light Mode) -->
+                    <i class="fas fa-moon hidden dark:block"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-slate-800 dark:text-white text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <div class="md:max-w-xl text-center md:text-left">
-                <h1 class="text-4xl md:text-6xl font-bold mb-2 leading-tight neon-text">Mihle Siguqu</h1>
-                <p class="text-xl md:text-2xl text-[#FF6584] font-medium mb-4">Full-Stack Developer, Seeking a Learnership</p>
-                <p class="text-lg text-gray-400 mb-6">I architect innovative solutions, write clean code, and turn complex problems into elegant applications. I am a passionate and dedicated candidate ready to bring my skills to a learnership and grow with a forward-thinking team.</p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <a href="#projects" class="bg-[#00FFFF] text-gray-900 px-6 py-3 rounded-full font-bold shadow-md transition-all duration-300 hover:bg-[#FF6584] hover:text-white transform hover:-translate-y-1">View My Work</a>
-                    <a href="#contact" class="bg-transparent border-2 border-[#FF6584] text-[#FF6584] px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-[#FF6584] hover:text-white transform hover:-translate-y-1">Get in Touch</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+
+        <!-- Background Blobs (Animation) -->
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 dark:bg-lunar-accent rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-blue-300 dark:bg-lunar-glow rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+
+        <div class="container mx-auto px-6 z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1 text-center md:text-left space-y-6 animate-fade-in">
+                <div class="inline-block px-4 py-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 text-slate-600 dark:text-slate-300 text-xs tracking-[0.2em] uppercase font-bold mb-2 backdrop-blur-sm">
+                    GMT+2 Auto-Synced Portfolio
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight text-slate-900 dark:text-white transition-colors">
+                    Digital <br />
+                    <span class="text-gradient">Architect</span> <span class="text-slate-300 font-light">&</span><br />
+                    Designer.
+                </h1>
+                <p class="text-lg text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-lg mx-auto md:mx-0 transition-colors">
+                    Designing systems that work while you sleep. I build robust full-stack applications with an eye for elegance and a mind for logic.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-6">
+                    <a href="#projects" class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-3.5 rounded-full font-semibold hover:opacity-90 transition-all transform hover:-translate-y-1 shadow-lg">
+                        View Projects
+                    </a>
+                    <a href="MSiguquCV-IT.pdf" download class="flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border border-slate-300 dark:border-slate-600 bg-transparent text-slate-800 dark:text-white hover:border-solar-accent dark:hover:border-lunar-accent transition-all transform hover:-translate-y-1 group">
+                        <span>Download CV</span>
+                        <i class="fas fa-download text-xs group-hover:translate-y-0.5 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="order-1 md:order-2 flex justify-center relative">
+                <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <!-- Rotating Borders -->
+                    <div class="absolute inset-0 rounded-full border border-slate-200 dark:border-white/10 scale-110 animate-[spin_10s_linear_infinite]"></div>
+                    <div class="absolute inset-0 rounded-full border border-solar-accent/30 dark:border-lunar-accent/30 scale-125 animate-[spin_15s_linear_infinite_reverse]"></div>
+                    <img src="PortPic.jpeg" alt="Mihle Siguqu" class="w-full h-full rounded-full object-cover border-4 border-white dark:border-slate-800 shadow-2xl relative z-10 transition-all">
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="relative z-10">
-        <!-- About Section -->
-        <section id="about" class="container mx-auto px-4 py-16">
-            <h2 class="text-3xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#00FFFF] after:rounded-full">About Me</h2>
-            <div class="glass-card p-8 rounded-2xl border border-gray-700">
-                <div class="flex flex-col md:flex-row gap-8 items-center">
-                    <!-- Image (Left) -->
-                    <div class="md:w-1/3 flex justify-center">
-                        <img src="AboutPic4.jpg"
-                             alt="Mihle Siguqu"
-                             class="w-48 h-48 rounded-full object-cover border-4 border-[#00FFFF] shadow-2xl transition-transform duration-300 hover:scale-105">
-                    </div>
+    <main class="relative z-10 space-y-32 pb-32">
 
-                    <!-- Text Content (Right) -->
+        <!-- About Section -->
+        <section id="about" class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <div class="glass-card p-10 rounded-3xl md:flex gap-12 items-center transition-all">
+                    <div class="md:w-1/3 mb-8 md:mb-0 relative">
+                        <div class="aspect-square rounded-2xl overflow-hidden relative shadow-lg">
+                            <img src="AboutPic4.jpg" alt="Mihle Siguqu" class="object-cover w-full h-full transform transition hover:scale-105 duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
+                        </div>
+                    </div>
                     <div class="md:w-2/3">
-                        <h3 class="text-2xl font-bold text-[#FF6584] mb-4">From Durban with Code</h3>
-                        <p class="text-gray-400 mb-4">
-                            I’m Mihle Siguqu, a final-year Information Communication Technology student specializing in Application Development at the Durban University of Technology. My journey into tech began with curiosity and has grown into a passion for building scalable, user-friendly digital solutions. I’ve developed a solid foundation in full-stack development, cloud computing, and user-centered design, with hands-on experience in C#, Java, SQL, and JavaScript. My portfolio includes impactful projects like a Clinic Management System and a tutoring platform—both designed to solve real-world problems through innovative web applications.
-                            Beyond the classroom, I’ve pursued certifications in Generative AI and Azure AI Fundamentals through Microsoft, and explored cybersecurity and Linux fundamentals via Cisco. These experiences reflect my commitment to continuous growth in an ever-evolving tech landscape. I believe technology should empower people, and I’m excited to share my knowledge, collaborate on meaningful projects, and help others navigate the world of software development with confidence.
+                        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white transition-colors">
+                            <span class="text-solar-accent dark:text-lunar-accent italic">/</span> About Me
+                        </h2>
+                        <h4 class="text-xl text-slate-700 dark:text-slate-300 mb-4 font-serif italic font-medium">My Journey into Tech</h4>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-light transition-colors">
+                            My journey began with a curiosity for how digital products are built and evolved into a passion for architecting scalable solutions. I combine <strong class="text-slate-900 dark:text-white font-semibold">technical strength</strong> in C# and SQL with <strong class="text-slate-900 dark:text-white font-semibold">creative problem-solving</strong> in UI/UX design.
                         </p>
+                        <div class="flex gap-4 text-2xl text-slate-400 dark:text-slate-500">
+                            <i class="fab fa-microsoft hover:text-blue-500 transition-colors"></i>
+                            <i class="fab fa-cisco hover:text-green-500 transition-colors"></i>
+                            <i class="fas fa-code hover:text-purple-500 transition-colors"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
         <!-- Skills Section -->
-        <section id="skills" class="container mx-auto px-4 py-16">
-            <h2 class="text-3xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#00FFFF] after:rounded-full">My Skills</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass-card p-6 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-4 text-[#FF6584]">Technical Skills</h3>
-                    <div class="space-y-4">
-                        <!-- Skill Bar component -->
-                        <div class="group">
-                            <div class="flex justify-between mb-1 text-gray-200">
-                                <span>C#</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 90%;"></div>
-                            </div>
-                        </div>
-                        <!-- ... other skill bars ... -->
-                        <div class="group">
-                            <div class="flex justify-between mb-1 text-gray-200">
-                                <span>Java</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 85%;"></div>
-                            </div>
-                        </div>
-                        <div class="group">
-                            <div class="flex justify-between mb-1 text-gray-200">
-                                <span>JavaScript</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 80%;"></div>
-                            </div>
-                        </div>
-                        <div class="group">
-                            <div class="flex justify-between mb-1 text-gray-200">
-                                <span>SQL</span>
-                                <span>88%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 88%;"></div>
-                            </div>
-                        </div>
-                        <div class="group">
-                            <div class="flex justify-between mb-1 text-gray-200">
-                                <span>CSS</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 90%;"></div>
-                            </div>
-                        </div>
-                        <div class="group">
-                            <div class="flex justify-between mb-1 text-gray-200">
-                                <span>HTML</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 95%;"></div>
-                            </div>
-                        </div>
+        <section id="skills" class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-slate-900 dark:text-white transition-colors">Technical <span class="text-gradient">Stack</span></h2>
+                <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Adapting to any environment, day or night.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- UI/UX Design -->
+                <div class="glass-card p-8 rounded-2xl group">
+                    <div class="w-14 h-14 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-pink-500 mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-pen-nib text-2xl"></i>
                     </div>
+                    <h3 class="text-lg font-bold mb-4 text-slate-900 dark:text-white transition-colors">UI/UX Design</h3>
+                    <ul class="space-y-3 text-slate-500 dark:text-slate-400 text-sm">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400 text-xs"></i> Wireframing</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400 text-xs"></i> Prototyping</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400 text-xs"></i> User Research</li>
+                    </ul>
                 </div>
-                <div class="glass-card p-6 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-4 text-[#FF6584]">Professional Skills</h3>
-                    <div class="space-y-4">
-                        <div class="group">
-                            <div class="flex justify-between mb-1 text-gray-200">
-                                <span>Problem Solving</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 95%;"></div>
-                            </div>
-                        </div>
-                        <div class="group">
-                            <div class="flex justify-between mb-1 text-gray-200">
-                                <span>Teamwork</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 90%;"></div>
-                            </div>
-                        </div>
-                        <div class="group">
-                            <div class="flex justify-between mb-1 text-gray-200">
-                                <span>Communication</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 85%;"></div>
-                            </div>
-                        </div>
-                        <div class="group">
-                            <div class="flex justify-between mb-1 text-gray-200">
-                                <span>Project Management</span>
-                                <span>82%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-[#00FFFF] h-2.5 rounded-full transition-all duration-500 ease-in-out group-hover:bg-[#FF6584]" style="width: 82%;"></div>
-                            </div>
-                        </div>
+
+                <!-- Front-End -->
+                <div class="glass-card p-8 rounded-2xl group">
+                    <div class="w-14 h-14 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-solar-accent dark:text-lunar-accent mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-code text-2xl"></i>
                     </div>
+                    <h3 class="text-lg font-bold mb-4 text-slate-900 dark:text-white transition-colors">Front-End Dev</h3>
+                    <ul class="space-y-3 text-slate-500 dark:text-slate-400 text-sm">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-accent dark:text-lunar-accent text-xs"></i> HTML5 & CSS3</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-accent dark:text-lunar-accent text-xs"></i> JavaScript (ES6+)</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-accent dark:text-lunar-accent text-xs"></i> Tailwind CSS</li>
+                    </ul>
+                </div>
+
+                <!-- Back-End -->
+                <div class="glass-card p-8 rounded-2xl group">
+                    <div class="w-14 h-14 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-purple-500 dark:text-lunar-glow mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-server text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-4 text-slate-900 dark:text-white transition-colors">Back-End Dev</h3>
+                    <ul class="space-y-3 text-slate-500 dark:text-slate-400 text-sm">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-xs"></i> ASP.NET Core / C#</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-xs"></i> SQL & Entity</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-xs"></i> API Development</li>
+                    </ul>
+                </div>
+
+                <!-- Graphic Design -->
+                <div class="glass-card p-8 rounded-2xl group">
+                    <div class="w-14 h-14 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-solar-gold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-palette text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-4 text-slate-900 dark:text-white transition-colors">Graphic Design</h3>
+                    <ul class="space-y-3 text-slate-500 dark:text-slate-400 text-sm">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-gold text-xs"></i> Branding</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-gold text-xs"></i> Social Media</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-gold text-xs"></i> Digital Assets</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="container mx-auto px-4 py-16">
-            <h2 class="text-3xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#00FFFF] after:rounded-full">My Projects</h2>
+        <section id="projects" class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center text-slate-900 dark:text-white transition-colors">Featured <span class="text-gradient">Projects</span></h2>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Clinic Project Card -->
-                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
-                    <div class="h-52 w-full flex items-center justify-center bg-gray-800 overflow-hidden">
-                        <img src="Clinic.jpg" alt="Clinic Management System Screenshot" class="object-cover w-full h-full rounded-t-xl transition-transform duration-300 hover:scale-105" />
+
+                <!-- Project 1: Clinic System -->
+                <div class="glass-card rounded-2xl overflow-hidden group flex flex-col h-full hover:shadow-xl dark:hover:shadow-cyan-900/20 transition-all">
+                    <div class="h-48 w-full bg-slate-100 dark:bg-slate-800 overflow-hidden relative">
+                        <img src="Clinic.jpg" alt="Clinic System" class="object-cover w-full h-full opacity-90 group-hover:scale-105 transition-transform duration-500">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-[#FF6584]">Clinic Management System</h3>
-                        <p class="text-gray-400 mb-4">Full-stack solution for DUT Clinic enabling appointment booking, medical form submissions, and patient reviews.</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">C#</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">SQL</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">Azure</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">CSS</span>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-2">
+                            <span class="text-xs font-mono text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/30 px-2 py-1 rounded">Full-Stack</span>
                         </div>
-                        <button class="w-full bg-gradient-to-r from-[#00FFFF] to-[#FF6584] text-gray-900 py-3 rounded-full font-bold shadow-md transition-all duration-300 hover:scale-105 view-gallery-btn">View Gallery</button>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white transition-colors">DUT Clinic System</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 line-clamp-3">A comprehensive web portal solving inefficient manual patient tracking. Features real-time booking and digital medical records.</p>
+
+                        <div class="mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                            <button onclick="openCaseStudy('clinic')" class="w-full py-3 rounded-lg bg-slate-50 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-purple-500 hover:text-white dark:hover:bg-purple-600 transition-all text-sm font-medium flex items-center justify-center gap-2">
+                                <span>View Case Study</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Tutoring Project Card -->
-                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
-                    <div class="h-52 w-full flex items-center justify-center bg-gray-800 overflow-hidden">
-                        <img src="Tut.jpeg" alt="Tutoring Website Screenshot" class="object-cover w-full h-full rounded-t-xl transition-transform duration-300 hover:scale-105" />
+                <!-- Project 2: Tutoring Hub -->
+                <div class="glass-card rounded-2xl overflow-hidden group flex flex-col h-full hover:shadow-xl dark:hover:shadow-cyan-900/20 transition-all">
+                    <div class="h-48 w-full bg-slate-100 dark:bg-slate-800 overflow-hidden relative">
+                        <img src="Tut.jpeg" alt="Tutoring Platform" class="object-cover w-full h-full opacity-90 group-hover:scale-105 transition-transform duration-500">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-[#FF6584]">Tutoring Website Platform</h3>
-                        <p class="text-gray-400 mb-4">Connecting students with tutors for STEM subjects with user authentication and session scheduling.</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">JavaScript</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">CSS</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">HTML</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">Java</span>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-2 flex justify-between items-start">
+                            <span class="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded">Front-End</span>
+                            <a href="https://buildmimi.github.io/TutoringHub/" target="_blank" class="text-slate-400 hover:text-blue-500 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
-                        <a href="https://buildmimi.github.io/TutoringHub/" class="block w-full text-center bg-gradient-to-r from-[#00FFFF] to-[#FF6584] text-gray-900 py-3 rounded-full font-bold shadow-md transition-all duration-300 hover:scale-105" target="_blank">View Project</a>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white transition-colors">STEM Tutoring Hub</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 line-clamp-3">Connecting students with tutors through a responsive web platform. Solves the disconnect in academic support access.</p>
+
+                        <div class="mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                            <button onclick="openCaseStudy('tutor')" class="w-full py-3 rounded-lg bg-slate-50 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 transition-all text-sm font-medium flex items-center justify-center gap-2">
+                                <span>View Case Study</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Web Dev Business Card -->
-                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
-                    <div class="h-52 w-full flex items-center justify-center bg-gray-800 overflow-hidden">
-                        <img src="Dube.jpeg" alt="Web Development Business Screenshot" class="object-cover w-full h-full rounded-t-xl transition-transform duration-300 hover:scale-105" />
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-[#FF6584]">Web Development Business</h3>
-                        <p class="text-gray-400 mb-4">Custom web applications for local clients including e-commerce sites and booking systems.</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">HTML</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">CSS</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">Java</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full border border-gray-600">Spring Boot</span>
+                <!-- Project 3: Amora Digital -->
+                <div class="glass-card rounded-2xl overflow-hidden group flex flex-col h-full hover:shadow-xl dark:hover:shadow-cyan-900/20 transition-all">
+                    <div class="h-48 w-full bg-gradient-to-br from-slate-800 to-slate-950 flex items-center justify-center overflow-hidden relative">
+                        <div class="text-center z-10">
+                            <h3 class="text-3xl font-serif text-white/90">Amora</h3>
+                            <p class="text-xs text-teal-400 tracking-widest uppercase mt-1">Digital</p>
                         </div>
-                        <a href="https://buildmimi.github.io/todo/" class="block w-full text-center bg-gradient-to-r from-[#00FFFF] to-[#FF6584] text-gray-900 py-3 rounded-full font-bold shadow-md transition-all duration-300 hover:scale-105" target="_blank">View Project</a>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-2 flex justify-between items-start">
+                            <span class="text-xs font-mono text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/30 px-2 py-1 rounded">Web Design</span>
+                            <a href="http://amoradigitalsolution.co.za" target="_blank" class="text-slate-400 hover:text-teal-500 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white transition-colors">Amora Digital Solutions</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 line-clamp-3">A corporate agency website focusing on modern branding and digital presence. Delivering professional polish.</p>
+
+                        <div class="mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                            <button onclick="openCaseStudy('amora')" class="w-full py-3 rounded-lg bg-slate-50 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-teal-500 hover:text-white dark:hover:bg-teal-600 transition-all text-sm font-medium flex items-center justify-center gap-2">
+                                <span>View Case Study</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Sasah's Beauty Parlour -->
+                <div class="glass-card rounded-2xl overflow-hidden group flex flex-col h-full hover:shadow-xl dark:hover:shadow-cyan-900/20 transition-all">
+                    <div class="h-48 w-full bg-gradient-to-br from-pink-900 to-slate-900 flex items-center justify-center overflow-hidden relative">
+                        <div class="text-center z-10">
+                            <h3 class="text-3xl font-serif text-pink-200">Sasah's</h3>
+                            <p class="text-xs text-pink-400 tracking-widest uppercase mt-1">Beauty</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-2 flex justify-between items-start">
+                            <span class="text-xs font-mono text-pink-600 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/30 px-2 py-1 rounded">UI/UX & CMS</span>
+                            <a href="http://sasahsbeautyparlour.com" target="_blank" class="text-slate-400 hover:text-pink-500 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white transition-colors">Sasah's Beauty Parlour</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 line-clamp-3">An elegant digital storefront for a beauty salon, featuring service menus and booking information integration.</p>
+
+                        <div class="mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                            <button onclick="openCaseStudy('sasah')" class="w-full py-3 rounded-lg bg-slate-50 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-pink-500 hover:text-white dark:hover:bg-pink-600 transition-all text-sm font-medium flex items-center justify-center gap-2">
+                                <span>View Case Study</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Summit N Sizzle -->
+                <div class="glass-card rounded-2xl overflow-hidden group flex flex-col h-full hover:shadow-xl dark:hover:shadow-cyan-900/20 transition-all">
+                    <div class="h-48 w-full bg-gradient-to-br from-orange-900 to-slate-900 flex items-center justify-center overflow-hidden relative">
+                        <div class="text-center z-10">
+                            <h3 class="text-3xl font-serif text-orange-200">Summit</h3>
+                            <p class="text-xs text-orange-400 tracking-widest uppercase mt-1">& Sizzle</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-2 flex justify-between items-start">
+                            <span class="text-xs font-mono text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/30 px-2 py-1 rounded">Branding</span>
+                            <a href="http://summitnsizzle.co.za" target="_blank" class="text-slate-400 hover:text-orange-500 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white transition-colors">Summit N Sizzle</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 line-clamp-3">A vibrant website for a food and event brand, showcasing menus, event galleries, and catering services.</p>
+
+                        <div class="mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                            <button onclick="openCaseStudy('summit')" class="w-full py-3 rounded-lg bg-slate-50 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-600 transition-all text-sm font-medium flex items-center justify-center gap-2">
+                                <span>View Case Study</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Web Business -->
+                <div class="glass-card rounded-2xl overflow-hidden group flex flex-col h-full hover:shadow-xl dark:hover:shadow-cyan-900/20 transition-all">
+                    <div class="h-48 w-full bg-slate-100 dark:bg-slate-800 overflow-hidden relative">
+                        <img src="Dube.jpeg" alt="Web Development Business" class="object-cover w-full h-full opacity-90 group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-2 flex justify-between items-start">
+                            <span class="text-xs font-mono text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-2 py-1 rounded">Freelance</span>
+                            <a href="https://buildmimi.github.io/todo/" target="_blank" class="text-slate-400 hover:text-green-500 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white transition-colors">SME Digital Solutions</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 line-clamp-3">Custom web application services for local entrepreneurs, delivering tailored digital tools to solve specific business needs.</p>
+
+                        <div class="mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                            <button onclick="openCaseStudy('webbus')" class="w-full py-3 rounded-lg bg-slate-50 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-green-500 hover:text-white dark:hover:bg-green-600 transition-all text-sm font-medium flex items-center justify-center gap-2">
+                                <span>View Case Study</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Interests Section -->
-        <section id="interests" class="container mx-auto px-4 py-16">
-            <h2 class="text-3xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#00FFFF] after:rounded-full">My Interests</h2>
-            <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">When I'm not coding, these are the things that keep me inspired and energized.</p>
-            <div class="flex flex-wrap justify-center gap-6">
-                <!-- Interest Item: Games -->
-                <div class="glass-card p-6 rounded-2xl text-center w-36 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-[#FF6584]">
-                    <div class="text-4xl text-[#00FFFF] mb-2"><i class="fas fa-gamepad"></i></div>
-                    <div class="font-semibold">Games</div>
+        <!-- Graphic Design Grid -->
+        <section id="graphic-design" class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-4 text-center text-slate-900 dark:text-white transition-colors">Visual <span class="text-gradient">Studio</span></h2>
+            <p class="text-slate-500 dark:text-slate-400 text-center mb-12">Explorations in branding, social media, and digital art.</p>
+
+            <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                <!-- Branding Mockup -->
+                <div class="glass-card rounded-xl p-6 break-inside-avoid group cursor-pointer">
+                    <div class="aspect-[4/3] bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-800 dark:to-slate-900 rounded-lg flex items-center justify-center mb-4 relative overflow-hidden border border-slate-100 dark:border-white/5">
+                        <i class="fas fa-cube text-4xl text-solar-gold group-hover:text-amber-500 transition-colors"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 dark:text-white">Corporate Identity</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Logo & Brand Guidelines</p>
                 </div>
-                <!-- Interest Item: Gadgets -->
-                <div class="glass-card p-6 rounded-2xl text-center w-36 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-[#FF6584]">
-                    <div class="text-4xl text-[#00FFFF] mb-2"><i class="fas fa-mobile-alt"></i></div>
-                    <div class="font-semibold">Gadgets</div>
+
+                <!-- Social Media Post -->
+                <div class="glass-card rounded-xl p-6 break-inside-avoid group cursor-pointer">
+                    <div class="aspect-[9/16] bg-gradient-to-br from-pink-50 to-rose-50 dark:from-slate-800 dark:to-slate-900 rounded-lg flex items-center justify-center mb-4 border border-slate-100 dark:border-white/5">
+                        <i class="fab fa-instagram text-4xl text-pink-400 group-hover:text-pink-500 transition-colors"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 dark:text-white">Social Media Campaign</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Instagram & LinkedIn Assets</p>
                 </div>
-                <!-- Interest Item: AI -->
-                <div class="glass-card p-6 rounded-2xl text-center w-36 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-[#FF6584]">
-                    <div class="text-4xl text-[#00FFFF] mb-2"><i class="fas fa-robot"></i></div>
-                    <div class="font-semibold">AI</div>
-                </div>
-                <!-- Interest Item: Chess -->
-                <div class="glass-card p-6 rounded-2xl text-center w-36 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-[#FF6584]">
-                    <div class="text-4xl text-[#00FFFF] mb-2"><i class="fas fa-chess"></i></div>
-                    <div class="font-semibold">Chess</div>
-                </div>
-                <!-- Interest Item: Music -->
-                <div class="glass-card p-6 rounded-2xl text-center w-36 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-[#FF6584]">
-                    <div class="text-4xl text-[#00FFFF] mb-2"><i class="fas fa-music"></i></div>
-                    <div class="font-semibold">Music</div>
-                </div>
-                <!-- Interest Item: Travel -->
-                <div class="glass-card p-6 rounded-2xl text-center w-36 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-[#FF6584]">
-                    <div class="text-4xl text-[#00FFFF] mb-2"><i class="fas fa-plane"></i></div>
-                    <div class="font-semibold">Travel</div>
+
+                <!-- Poster Design -->
+                <div class="glass-card rounded-xl p-6 break-inside-avoid group cursor-pointer">
+                    <div class="aspect-[3/4] bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-900 rounded-lg flex items-center justify-center mb-4 border border-slate-100 dark:border-white/5">
+                        <i class="fas fa-image text-4xl text-blue-400 group-hover:text-blue-500 transition-colors"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 dark:text-white">Event Poster Series</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Print Media Design</p>
                 </div>
             </div>
         </section>
 
-        <!-- Certificates Section -->
-        <section id="certificates" class="container mx-auto px-4 py-16">
-            <h2 class="text-3xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#00FFFF] after:rounded-full">My Certificates</h2>
+        <!-- Certifications -->
+        <section id="certifications" class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center text-slate-900 dark:text-white transition-colors">Certified <span class="text-gradient">Excellence</span></h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
                 <!-- Certificate 1 -->
-                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
-                    <img src="fund.jpeg" alt="Azure AI Fundamentals" class="w-full h-44 object-cover">
-                    <div class="p-4 text-center font-semibold text-gray-200">Azure AI Fundamentals</div>
+                <div class="glass-card rounded-xl overflow-hidden group hover:border-blue-300 dark:hover:border-blue-500 transition-all hover:shadow-lg">
+                    <div class="h-40 overflow-hidden">
+                        <img src="fund.jpeg" alt="Azure AI Fundamentals" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 bg-white/50 dark:bg-slate-800/50">
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm">Azure AI Fundamentals</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Microsoft</p>
+                    </div>
                 </div>
                 <!-- Certificate 2 -->
-                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
-                    <img src="Gen.jpeg" alt="Generative AI" class="w-full h-44 object-cover">
-                    <div class="p-4 text-center font-semibold text-gray-200">Generative AI</div>
+                <div class="glass-card rounded-xl overflow-hidden group hover:border-purple-300 dark:hover:border-purple-500 transition-all hover:shadow-lg">
+                    <div class="h-40 overflow-hidden">
+                        <img src="Gen.jpeg" alt="Generative AI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 bg-white/50 dark:bg-slate-800/50">
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm">Generative AI</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Microsoft</p>
+                    </div>
                 </div>
                 <!-- Certificate 3 -->
-                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
-                    <img src="cyber.jpeg" alt="Cybersecurity Essentials" class="w-full h-44 object-cover">
-                    <div class="p-4 text-center font-semibold text-gray-200">Cybersecurity</div>
+                <div class="glass-card rounded-xl overflow-hidden group hover:border-green-300 dark:hover:border-green-500 transition-all hover:shadow-lg">
+                    <div class="h-40 overflow-hidden">
+                        <img src="cyber.jpeg" alt="Cybersecurity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 bg-white/50 dark:bg-slate-800/50">
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm">Cybersecurity</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Cisco</p>
+                    </div>
                 </div>
                 <!-- Certificate 4 -->
-                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
-                    <img src="Linux.jpeg" alt="Linux Unhatched" class="w-full h-44 object-cover">
-                    <div class="p-4 text-center font-semibold text-gray-200">Linux Unhatched</div>
+                <div class="glass-card rounded-xl overflow-hidden group hover:border-amber-300 dark:hover:border-amber-500 transition-all hover:shadow-lg">
+                    <div class="h-40 overflow-hidden">
+                        <img src="Linux.jpeg" alt="Linux Unhatched" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 bg-white/50 dark:bg-slate-800/50">
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm">Linux Unhatched</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Cisco</p>
+                    </div>
                 </div>
                 <!-- Certificate 5 -->
-                <div class="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#FF6584]">
-                    <img src="pack.jpeg" alt="Packet Tracer" class="w-full h-44 object-cover">
-                    <div class="p-4 text-center font-semibold text-gray-200">Linux Unhatched</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Resume Section -->
-        <section id="resume" class="container mx-auto px-4 py-16">
-            <h2 class="text-3xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#00FFFF] after:rounded-full">My Resume</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Education -->
-                <div>
-                    <h3 class="text-2xl font-bold mb-6 text-[#FF6584]">Education</h3>
-                    <div class="glass-card p-6 rounded-xl mb-6">
-                        <h4 class="text-xl font-semibold text-white">Diploma in ICT (Application Development)</h4>
-                        <p class="text-[#00FFFF] font-bold mt-1">Durban University of Technology</p>
-                        <p class="text-gray-400 mt-2">2023 - Present</p>
+                <div class="glass-card rounded-xl overflow-hidden group hover:border-slate-300 dark:hover:border-slate-500 transition-all hover:shadow-lg">
+                    <div class="h-40 overflow-hidden">
+                        <img src="pack.jpeg" alt="Packet Tracer" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <div class="glass-card p-6 rounded-xl">
-                        <h4 class="text-xl font-semibold text-white">Matriculation</h4>
-                        <p class="text-[#00FFFF] font-bold mt-1">St Matthews High School</p>
-                        <p class="text-gray-400 mt-2">Graduated 2020</p>
-                    </div>
-                </div>
-                <!-- Experience -->
-                <div>
-                    <h3 class="text-2xl font-bold mb-6 text-[#FF6584]">Experience</h3>
-                    <div class="glass-card p-6 rounded-xl mb-6">
-                        <h4 class="text-xl font-semibold text-white">Office Administrator</h4>
-                        <p class="text-[#00FFFF] font-bold mt-1">Johan Plumbers & General Services</p>
-                        <p class="text-gray-400 mt-2">Jan 2021 - Jun 2022</p>
-                        <ul class="list-disc list-inside space-y-1 text-gray-400 mt-3">
-                            <li>Managed workflow sheets and dispatched tasks</li>
-                            <li>Handled client communications and invoices</li>
-                        </ul>
-                    </div>
-                    <div class="glass-card p-6 rounded-xl">
-                        <h4 class="text-xl font-semibold text-white">Food Server</h4>
-                        <p class="text-[#00FFFF] font-bold mt-1">Bootlegger Coffee Company</p>
-                        <p class="text-gray-400 mt-2">Sep - Dec 2022</p>
-                        <ul class="list-disc list-inside space-y-1 text-gray-400 mt-3">
-                            <li>Provided customer service in fast-paced environment</li>
-                            <li>Managed transactions and resolved inquiries</li>
-                        </ul>
+                    <div class="p-4 bg-white/50 dark:bg-slate-800/50">
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm">Packet Tracer</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Cisco</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="container mx-auto px-4 py-16 text-center">
-            <h2 class="text-3xl font-bold mb-4 text-[#FF6584]">Let's Connect</h2>
-            <p class="text-gray-400 max-w-2xl mx-auto mb-12">Have a project in mind or want to chat about tech opportunities? I'm always open to discussing new ideas and collaborations.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Email Card -->
-                <div class="glass-card p-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00FFFF]">
-                    <div class="text-4xl text-[#00FFFF] mb-4"><i class="fas fa-envelope"></i></div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Email Me</h3>
-                    <p class="text-gray-400">For project inquiries or job opportunities</p>
-                    <a href="mailto:msiguqu@gmail.com" class="block mt-4 text-[#FF6584] font-semibold hover:underline">msiguqu@gmail.com</a>
+        <section id="contact" class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center text-slate-900 dark:text-white transition-colors">Let's <span class="text-gradient">Connect</span></h2>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="glass-card p-10 rounded-2xl">
+                        <h3 class="text-2xl font-serif font-bold mb-6 text-slate-900 dark:text-white">Get in Touch</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-8 font-light leading-relaxed">
+                            I am currently available for learnerships and freelance projects. Let's discuss how I can add value to your team with elegant, efficient solutions.
+                        </p>
+
+                        <div class="space-y-6">
+                            <a href="mailto:msiguqu@gmail.com" class="flex items-center gap-4 text-slate-600 dark:text-slate-400 hover:text-solar-accent dark:hover:text-lunar-accent transition-colors group">
+                                <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-300 group-hover:bg-solar-accent dark:group-hover:bg-lunar-accent group-hover:text-white transition-all shadow-sm">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <span class="font-medium">msiguqu@gmail.com</span>
+                            </a>
+                            <a href="tel:+27635321092" class="flex items-center gap-4 text-slate-600 dark:text-slate-400 hover:text-solar-accent dark:hover:text-lunar-accent transition-colors group">
+                                <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-300 group-hover:bg-solar-accent dark:group-hover:bg-lunar-accent group-hover:text-white transition-all shadow-sm">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <span class="font-medium">+27 63 532 1092</span>
+                            </a>
+                            <a href="https://linkedin.com/in/mihle-siguqu" target="_blank" class="flex items-center gap-4 text-slate-600 dark:text-slate-400 hover:text-solar-accent dark:hover:text-lunar-accent transition-colors group">
+                                <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-300 group-hover:bg-solar-accent dark:group-hover:bg-lunar-accent group-hover:text-white transition-all shadow-sm">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </div>
+                                <span class="font-medium">LinkedIn Profile</span>
+                            </a>
+                            <a href="https://github.com/BuildMimi" target="_blank" class="flex items-center gap-4 text-slate-600 dark:text-slate-400 hover:text-solar-accent dark:hover:text-lunar-accent transition-colors group">
+                                <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-300 group-hover:bg-solar-accent dark:group-hover:bg-lunar-accent group-hover:text-white transition-all shadow-sm">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <span class="font-medium">GitHub Profile</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <!-- Call/SMS Card -->
-                <div class="glass-card p-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00FFFF]">
-                    <div class="text-4xl text-[#00FFFF] mb-4"><i class="fas fa-mobile-alt"></i></div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Call or Text</h3>
-                    <p class="text-gray-400">Available Mon-Fri, 9AM-5PM</p>
-                    <a href="tel:+27635321092" class="block mt-4 text-[#FF6584] font-semibold hover:underline">+27 63 532 1092</a>
-                </div>
-                <!-- LinkedIn Card -->
-                <div class="glass-card p-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00FFFF]">
-                    <div class="text-4xl text-[#00FFFF] mb-4"><i class="fab fa-linkedin"></i></div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Professional Profile</h3>
-                    <p class="text-gray-400">Let's connect on LinkedIn</p>
-                    <a href="https://linkedin.com/in/mihle-siguqu" target="_blank" class="block mt-4 text-[#FF6584] font-semibold hover:underline">Visit My Profile</a>
-                </div>
+
+                <!-- Contact Form -->
+                <form action="#" class="glass-card p-10 rounded-2xl space-y-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-600 dark:text-slate-400 mb-2">Name</label>
+                        <input type="text" class="w-full bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white rounded-lg p-3 focus:outline-none focus:border-solar-accent dark:focus:border-lunar-accent transition-colors" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-600 dark:text-slate-400 mb-2">Email</label>
+                        <input type="email" class="w-full bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white rounded-lg p-3 focus:outline-none focus:border-solar-accent dark:focus:border-lunar-accent transition-colors" placeholder="your@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-600 dark:text-slate-400 mb-2">Message</label>
+                        <textarea class="w-full bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white rounded-lg p-3 h-32 focus:outline-none focus:border-solar-accent dark:focus:border-lunar-accent transition-colors" placeholder="Tell me about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-slate-900 dark:bg-lunar-glow text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-xl hover:opacity-90 transition-all transform hover:-translate-y-1">
+                        Send Message
+                    </button>
+                </form>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="bg-gray-800 text-white py-12 text-center">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold mb-4 text-[#00FFFF]">Let's Build Something Amazing</h2>
-                <p class="text-gray-400 mb-6">Have a project in mind or want to chat about tech? I'd love to hear from you!</p>
-                <div class="flex justify-center gap-6 text-2xl mb-6">
-                    <a href="mailto:msiguqu@gmail.com" class="text-gray-400 hover:text-[#00FFFF] transition-colors duration-300"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:+27635321092" class="text-gray-400 hover:text-[#00FFFF] transition-colors duration-300"><i class="fas fa-phone"></i></a>
-                    <a href="https://linkedin.com/in/mihle-siguqu" target="_blank" class="text-gray-400 hover:text-[#00FFFF] transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-[#00FFFF] transition-colors duration-300"><i class="fab fa-github"></i></a>
+        <footer class="relative mt-32 border-t border-slate-200 dark:border-white/5 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md pt-20 pb-10">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-4 gap-12 mb-16">
+                    <!-- Brand Column -->
+                    <div class="md:col-span-2 space-y-6">
+                        <a href="#" class="text-3xl font-serif font-bold text-slate-800 dark:text-white tracking-wide">MS.</a>
+                        <p class="text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm font-light">
+                            Crafting digital experiences that blend technical precision with aesthetic elegance.
+                            Currently open for learnerships & collaborations in the tech space.
+                        </p>
+                        <!-- Socials -->
+                        <div class="flex gap-4 pt-2">
+                            <a href="https://linkedin.com/in/mihle-siguqu" target="_blank" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all shadow-sm"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/BuildMimi" target="_blank" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900 transition-all shadow-sm"><i class="fab fa-github"></i></a>
+                            <a href="mailto:msiguqu@gmail.com" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-red-500 hover:text-white dark:hover:bg-red-500 transition-all shadow-sm"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Links Column -->
+                    <div>
+                        <h4 class="font-serif font-bold text-slate-800 dark:text-white mb-6 text-lg">Explore</h4>
+                        <ul class="space-y-4 text-slate-500 dark:text-slate-400 text-sm">
+                            <li><a href="#about" class="hover:text-solar-accent dark:hover:text-lunar-accent hover:translate-x-1 transition-all inline-block">About Me</a></li>
+                            <li><a href="#projects" class="hover:text-solar-accent dark:hover:text-lunar-accent hover:translate-x-1 transition-all inline-block">Selected Work</a></li>
+                            <li><a href="#skills" class="hover:text-solar-accent dark:hover:text-lunar-accent hover:translate-x-1 transition-all inline-block">Technical Stack</a></li>
+                            <li><a href="#contact" class="hover:text-solar-accent dark:hover:text-lunar-accent hover:translate-x-1 transition-all inline-block">Get in Touch</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Services/Tags Column -->
+                    <div>
+                        <h4 class="font-serif font-bold text-slate-800 dark:text-white mb-6 text-lg">Expertise</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-xs text-slate-600 dark:text-slate-300 font-medium shadow-sm">UI/UX Design</span>
+                            <span class="px-3 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-xs text-slate-600 dark:text-slate-300 font-medium shadow-sm">Full-Stack Dev</span>
+                            <span class="px-3 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-xs text-slate-600 dark:text-slate-300 font-medium shadow-sm">Branding</span>
+                        </div>
+                    </div>
                 </div>
-                <p class="text-gray-500 text-sm">&copy; 2024 Mihle Siguqu. All rights reserved.</p>
+
+                <!-- Bottom Bar -->
+                <div class="border-t border-slate-200 dark:border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-400">
+                    <p>&copy; 2024 Mihle Siguqu. All rights reserved.</p>
+                    <p class="mt-2 md:mt-0">Designed with <span class="text-red-500 animate-pulse">♥</span> in South Africa.</p>
+                </div>
             </div>
         </footer>
     </main>
 
-    <!-- Clinic Project Gallery Modal -->
-    <div id="galleryModal" class="fixed inset-0 z-[100] bg-black bg-opacity-90 hidden flex items-center justify-center p-4">
-        <span class="absolute top-6 right-8 text-white text-5xl font-bold cursor-pointer transition-colors duration-300 hover:text-[#FF6584]" onclick="closeModal()">&times;</span>
-        <div class="relative w-full max-w-5xl h-full flex items-center justify-center">
-            <button id="prevBtn" class="absolute left-4 md:left-8 text-white text-4xl p-2 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 transition-all duration-300">&lt;</button>
-            <img class="max-w-full max-h-[90vh] object-contain" id="galleryImage" src="">
-            <button id="nextBtn" class="absolute right-4 md:right-8 text-white text-4xl p-2 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 transition-all duration-300">&gt;</button>
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/27635321092" target="_blank" class="fixed bottom-8 right-8 z-50 group">
+        <div class="absolute inset-0 rounded-full bg-green-400/30 blur-md group-hover:bg-green-500/50 transition-all duration-300 animate-pulse"></div>
+        <div class="relative w-14 h-14 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border border-slate-200 dark:border-slate-600 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 group-hover:bg-green-500 group-hover:border-green-500 group-hover:-translate-y-1">
+            <i class="fab fa-whatsapp text-3xl text-green-500 group-hover:text-white transition-colors duration-300"></i>
+        </div>
+    </a>
+
+    <!-- Enhanced Case Study Modal (Dual Mode) -->
+    <div id="caseStudyModal" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm hidden overflow-y-auto">
+        <div class="min-h-screen px-4 py-12 flex items-center justify-center">
+            <div class="bg-white dark:bg-slate-900 w-full max-w-5xl rounded-2xl overflow-hidden shadow-2xl relative animate-fade-in border border-slate-200 dark:border-slate-700">
+                <!-- Close Button -->
+                <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/10 hover:bg-black/20 dark:bg-white/10 dark:hover:bg-white/20 flex items-center justify-center text-slate-700 dark:text-white transition-all z-20">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <div class="grid md:grid-cols-2">
+                    <!-- Image/Visual Side -->
+                    <div class="bg-slate-100 dark:bg-slate-800 relative h-64 md:h-auto min-h-[400px] flex items-center justify-center group">
+                        <img id="modalImage" src="" class="absolute inset-0 w-full h-full object-cover transition-all">
+
+                        <div id="galleryControls" class="absolute inset-x-0 bottom-4 flex justify-center gap-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button id="prevBtn" class="w-10 h-10 rounded-full bg-white/80 dark:bg-slate-900/80 text-slate-800 dark:text-white shadow-md flex items-center justify-center hover:bg-white dark:hover:bg-slate-900"><i class="fas fa-chevron-left"></i></button>
+                            <button id="nextBtn" class="w-10 h-10 rounded-full bg-white/80 dark:bg-slate-900/80 text-slate-800 dark:text-white shadow-md flex items-center justify-center hover:bg-white dark:hover:bg-slate-900"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Content Side -->
+                    <div class="p-8 md:p-12 overflow-y-auto max-h-[80vh]">
+                        <span id="modalType" class="text-xs font-mono text-solar-accent dark:text-lunar-accent bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full border border-blue-100 dark:border-blue-800 inline-block mb-4">Full Stack</span>
+                        <h2 id="modalTitle" class="text-3xl font-serif font-bold text-slate-900 dark:text-white mb-6">Project Title</h2>
+
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">The Problem</h4>
+                                <p id="modalProblem" class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Description.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">The Solution</h4>
+                                <p id="modalSolution" class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Description.</p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Technologies</h4>
+                                <div id="modalTech" class="flex flex-wrap gap-2">
+                                    <!-- Tags injected here -->
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons Container -->
+                            <div id="modalActions" class="pt-6 border-t border-slate-100 dark:border-white/5 flex flex-wrap gap-4">
+                                <!-- Links injected here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const clinicImages = [
-            "Clinic.jpg",
-            "C1.jpg",
-            "C2.jpg",
-            "C3.jpg",
-            "C4.jpg",
-            "C5.jpg",
-            "C6.jpg"
-        ];
-
-        const modal = document.getElementById("galleryModal");
-        const modalImg = document.getElementById("galleryImage");
-        const prevBtn = document.getElementById("prevBtn");
-        const nextBtn = document.getElementById("nextBtn");
-        let currentImageIndex = 0;
-
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-
-        document.querySelectorAll(".view-gallery-btn").forEach(btn => {
-            btn.addEventListener("click", function () {
-                if (clinicImages.length > 0) {
-                    currentImageIndex = 0;
-                    modal.classList.remove('hidden');
-                    modal.classList.add('flex');
-                    modalImg.src = clinicImages[currentImageIndex];
-                }
-            });
-        });
-
-        prevBtn.addEventListener("click", function () {
-            currentImageIndex = (currentImageIndex - 1 + clinicImages.length) % clinicImages.length;
-            modalImg.src = clinicImages[currentImageIndex];
-        });
-
-        nextBtn.addEventListener("click", function () {
-            currentImageIndex = (currentImageIndex + 1) % clinicImages.length;
-            modalImg.src = clinicImages[currentImageIndex];
-        });
-
-        window.addEventListener('keydown', function (e) {
-            if (modal.classList.contains('flex')) {
-                if (e.key === 'ArrowLeft') {
-                    prevBtn.click();
-                } else if (e.key === 'ArrowRight') {
-                    nextBtn.click();
-                } else if (e.key === 'Escape') {
-                    closeModal();
-                }
+    <script>
+        // Project Data for Case Studies
+        const projects = {
+            clinic: {
+                title: "DUT Clinic Management System",
+                type: "Full-Stack Application",
+                problem: "The University Clinic faced bottlenecks with manual patient intake forms and appointment scheduling, leading to long wait times and potential data errors.",
+                solution: "I architected a secure, role-based web portal allowing students to book appointments online and enabling staff to manage digital medical records efficiently.",
+                tech: ["ASP.NET Core", "C#", "SQL Server", "Azure", "Bootstrap"],
+                sourceLink: "https://github.com/BuildMimi",
+                liveLink: null,
+                images: ["Clinic.jpg", "C1.jpg", "C2.jpg", "C3.jpg"]
+            },
+            tutor: {
+                title: "STEM Tutoring Hub",
+                type: "Web Platform",
+                problem: "STEM students often struggle to find qualified peer tutors, while capable tutors lack a centralized platform to offer their services.",
+                solution: "Developed a peer-to-peer connection platform featuring user profiles, session booking logic, and subject-based filtering to democratize access to academic support.",
+                tech: ["JavaScript", "HTML5", "CSS3", "Java Backend Logic"],
+                sourceLink: "https://github.com/BuildMimi/TutoringHub",
+                liveLink: "https://buildmimi.github.io/TutoringHub/",
+                images: ["Tut.jpeg"]
+            },
+            amora: {
+                title: "Amora Digital Solutions",
+                type: "Web Design & Branding",
+                problem: "A new digital agency needed a strong online presence to establish credibility in a competitive market.",
+                solution: "Designed and built a modern, responsive website with a focus on visual storytelling and clear conversion paths for potential clients.",
+                tech: ["UI/UX Design", "HTML/CSS", "Responsive Layouts"],
+                sourceLink: null,
+                liveLink: "http://amoradigitalsolution.co.za",
+                images: []
+            },
+            sasah: {
+                title: "Sasah's Beauty Parlour",
+                type: "UI/UX & Content Management",
+                problem: "The beauty parlour relied on walk-ins and phone calls, with no digital way to showcase their extensive service menu or pricing to potential clients.",
+                solution: "Created an elegant, mobile-first brochure site that reflects the salon's aesthetic. Features include an easily updatable service menu and direct booking integration.",
+                tech: ["HTML5", "CSS3", "JavaScript", "CMS"],
+                sourceLink: null,
+                liveLink: "http://sasahsbeautyparlour.com",
+                images: []
+            },
+            summit: {
+                title: "Summit N Sizzle",
+                type: "Brand Website",
+                problem: "A growing food and event brand lacked a centralized hub to showcase their past events and catering options to corporate clients.",
+                solution: "Developed a high-energy, visually driven website featuring dynamic galleries and digital menus, helping the brand secure more high-value catering contracts.",
+                tech: ["Web Design", "Responsive Layouts", "Gallery Integration"],
+                sourceLink: null,
+                liveLink: "http://summitnsizzle.co.za",
+                images: []
+            },
+            webbus: {
+                title: "SME Digital Solutions",
+                type: "Freelance Service",
+                problem: "Local entrepreneurs often struggle to afford custom software, resorting to generic tools that don't fit their workflows.",
+                solution: "I deliver tailored, cost-effective web applications for small businesses, ranging from booking systems to e-commerce storefronts.",
+                tech: ["Java", "HTML/CSS", "Spring Boot", "Consulting"],
+                sourceLink: "https://github.com/BuildMimi/todo",
+                liveLink: "https://buildmimi.github.io/todo/",
+                images: ["Dube.jpeg"]
             }
-        });
-
-        modal.addEventListener('click', function (e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        window.closeModal = function () {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
         };
-    });
-</script>
+
+        let currentProjectKey = '';
+        let currentImgIndex = 0;
+
+        function openCaseStudy(key) {
+            const project = projects[key];
+            if (!project) return;
+
+            currentProjectKey = key;
+            currentImgIndex = 0;
+            const modal = document.getElementById('caseStudyModal');
+
+            // Populate Text
+            document.getElementById('modalTitle').innerText = project.title;
+            document.getElementById('modalType').innerText = project.type;
+            document.getElementById('modalProblem').innerText = project.problem;
+            document.getElementById('modalSolution').innerText = project.solution;
+
+            // Populate Tech Tags
+            const techContainer = document.getElementById('modalTech');
+            techContainer.innerHTML = '';
+            project.tech.forEach(t => {
+                const tag = document.createElement('span');
+                tag.className = 'text-xs px-3 py-1 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-slate-600 dark:text-slate-300 font-medium';
+                tag.innerText = t;
+                techContainer.appendChild(tag);
+            });
+
+            // Populate Links
+            const actionsContainer = document.getElementById('modalActions');
+            actionsContainer.innerHTML = '';
+
+            if (project.liveLink) {
+                const liveBtn = document.createElement('a');
+                liveBtn.href = project.liveLink;
+                liveBtn.target = "_blank";
+                liveBtn.className = "inline-flex items-center gap-2 bg-slate-900 dark:bg-lunar-glow text-white px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all transform hover:-translate-y-1 shadow-lg";
+                liveBtn.innerHTML = '<i class="fas fa-external-link-alt text-sm"></i> <span>Visit Live Site</span>';
+                actionsContainer.appendChild(liveBtn);
+            }
+
+            if (project.sourceLink) {
+                const sourceBtn = document.createElement('a');
+                sourceBtn.href = project.sourceLink;
+                sourceBtn.target = "_blank";
+                sourceBtn.className = "inline-flex items-center gap-2 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 px-6 py-3 rounded-full font-bold hover:border-slate-900 dark:hover:border-white transition-all bg-transparent";
+                sourceBtn.innerHTML = '<i class="fab fa-github text-lg"></i> <span>View Source</span>';
+                actionsContainer.appendChild(sourceBtn);
+            }
+
+            updateModalImage();
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateModalImage() {
+            const project = projects[currentProjectKey];
+            const imgElement = document.getElementById('modalImage');
+            const controls = document.getElementById('galleryControls');
+
+            if (project.images && project.images.length > 0) {
+                imgElement.src = project.images[currentImgIndex];
+                controls.style.display = project.images.length > 1 ? 'flex' : 'none';
+            } else {
+                imgElement.src = '';
+                imgElement.parentElement.style.background = 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)';
+                controls.style.display = 'none';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('caseStudyModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            const project = projects[currentProjectKey];
+            if (project && project.images.length > 1) {
+                currentImgIndex = (currentImgIndex - 1 + project.images.length) % project.images.length;
+                updateModalImage();
+            }
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            const project = projects[currentProjectKey];
+            if (project && project.images.length > 1) {
+                currentImgIndex = (currentImgIndex + 1) % project.images.length;
+                updateModalImage();
+            }
+        });
+
+        document.getElementById('caseStudyModal').addEventListener('click', (e) => {
+            if (e.target.id === 'caseStudyModal') closeModal();
+        });
+    </script>
 
 </body>
 </html>
-
-
-
-
