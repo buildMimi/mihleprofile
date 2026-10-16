@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mihle Siguqu | Fullstack Developer</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b172a'/%3E%3Ctext x='50%25' y='53%25' text-anchor='middle' dominant-baseline='middle' fill='%23f8fafc' font-family='Arial, Helvetica, sans-serif' font-size='24' font-weight='700'%3EMS.%3C/text%3E%3C/svg%3E">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -142,10 +143,101 @@
             background: #cbd5e1;
             border-radius: 4px;
         }
+
+        html {
+            scroll-padding-top: 6rem;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        :focus-visible {
+            outline: 3px solid #0284c7;
+            outline-offset: 3px;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 200;
+            transform: translateY(-200%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        html.a11y-high-contrast,
+        html.a11y-high-contrast body,
+        html.a11y-high-contrast body * {
+            color: #111 !important;
+            background-color: #fff !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+
+        html.a11y-high-contrast body a {
+            color: #003c8f !important;
+            text-decoration: underline !important;
+        }
+
+        html.a11y-high-contrast body button {
+            border: 2px solid #111 !important;
+        }
+
+        html.a11y-readable-font,
+        html.a11y-readable-font body,
+        html.a11y-readable-font body * {
+            font-family: Arial, Helvetica, sans-serif !important;
+        }
+
+        html.a11y-increased-spacing body p,
+        html.a11y-increased-spacing body li {
+            line-height: 1.8 !important;
+            letter-spacing: 0.02em !important;
+            word-spacing: 0.08em !important;
+        }
+
+        html.a11y-underline-links body a {
+            text-decoration: underline !important;
+            text-underline-offset: 0.2em;
+        }
+
+        html.a11y-reduced-motion *,
+        html.a11y-reduced-motion *::before,
+        html.a11y-reduced-motion *::after {
+            scroll-behavior: auto !important;
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #accessibilityPanel {
+                max-height: min(75vh, 38rem);
+                overflow-y: auto;
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-day text-solar-text dark:text-lunar-text transition-colors duration-500">
+
+    <a href="#main-content" class="skip-link rounded-lg bg-slate-900 px-4 py-3 font-semibold text-white shadow-lg">Skip to main content</a>
 
     <!-- Theme Logic: GMT+2 Auto Sense -->
     <script>
@@ -191,7 +283,10 @@
                     <a href="#about" class="hover:text-solar-accent dark:hover:text-lunar-accent transition-colors">About</a>
                     <a href="#skills" class="hover:text-solar-accent dark:hover:text-lunar-accent transition-colors">Skills</a>
                     <a href="#experience" class="hover:text-solar-accent dark:hover:text-lunar-accent transition-colors">Experience</a>
-                    <a href="#projects" class="hover:text-solar-accent dark:hover:text-lunar-accent transition-colors">Work</a>
+                    <a href="#projects" class="hover:text-solar-accent dark:hover:text-lunar-accent transition-colors">Projects</a>
+                    <a href="#activities" class="hover:text-solar-accent dark:hover:text-lunar-accent transition-colors">Internship Work</a>
+                    <a href="#education" class="hover:text-solar-accent dark:hover:text-lunar-accent transition-colors">Education</a>
+                    <a href="#certifications" class="hover:text-solar-accent dark:hover:text-lunar-accent transition-colors">Certifications</a>
                     <a href="#contact" class="hover:text-solar-accent dark:hover:text-lunar-accent transition-colors">Contact</a>
                 </div>
 
@@ -221,15 +316,15 @@
         <div class="container mx-auto px-6 z-10 grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 text-center md:text-left space-y-6 animate-fade-in">
                 <div class="inline-block px-4 py-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 text-slate-600 dark:text-slate-300 text-xs tracking-[0.2em] uppercase font-bold mb-2 backdrop-blur-sm">
-                    GMT+2 Auto-Synced Portfolio
+                    ICT Application Developer | AI & Automation
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold leading-tight text-slate-900 dark:text-white transition-colors">
-                    Fullstack <br />
+                    ICT Application <br />
                     <span class="text-gradient">Developer</span> <span class="text-slate-300 font-light">&</span><br />
-                    Graphic Designer.
+                    Digital Transformation Analyst.
                 </h1>
                 <p class="text-lg text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-lg mx-auto md:mx-0 transition-colors">
-                    Designing systems that work while you sleep. I build robust full-stack applications with an eye for elegance and a mind for logic.
+                    ICT Application Development graduate with experience in software development, business analysis, process improvement, and AI-powered solutions for digital transformation.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-6">
                     <a href="#projects" class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-3.5 rounded-full font-semibold hover:opacity-90 transition-all transform hover:-translate-y-1 shadow-lg">
@@ -254,7 +349,7 @@
         </div>
     </header>
 
-    <main class="relative z-10 space-y-32 pb-32">
+    <main id="main-content" tabindex="-1" class="relative z-10 space-y-32 pb-32">
 
         <!-- About Section -->
         <section id="about" class="container mx-auto px-6">
@@ -270,15 +365,15 @@
                         <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white transition-colors">
                             <span class="text-solar-accent dark:text-lunar-accent italic">/</span> About Mihle Siguqu
                         </h2>
-                        <h4 class="text-xl text-slate-700 dark:text-slate-300 mb-4 font-serif italic font-medium">My Journey into Tech</h4>
+                        <h4 class="text-xl text-slate-700 dark:text-slate-300 mb-4 font-serif italic font-medium">Professional Profile</h4>
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-light transition-colors">
-                            My journey began with a curiosity for how digital products are built and evolved into a passion for architecting scalable solutions. I combine <strong class="text-slate-900 dark:text-white font-semibold">technical strength</strong> in C# and SQL with <strong class="text-slate-900 dark:text-white font-semibold">creative problem-solving</strong> in UI/UX design.
+                            ICT Application Development graduate with experience in <strong class="text-slate-900 dark:text-white font-semibold">software development</strong>, <strong class="text-slate-900 dark:text-white font-semibold">business analysis</strong>, process improvement, and AI-powered solutions. Currently serving as an Information Technology Graduate Intern at the City of Cape Town, contributing to digital transformation initiatives involving <strong class="text-slate-900 dark:text-white font-semibold">Microsoft Copilot</strong>, <strong class="text-slate-900 dark:text-white font-semibold">SharePoint</strong>, <strong class="text-slate-900 dark:text-white font-semibold">Power Automate</strong>, and innovative automation projects.
                         </p>
 
                         <div class="flex gap-4 text-2xl text-slate-400 dark:text-slate-500">
                             <i class="fab fa-microsoft hover:text-blue-500 transition-colors"></i>
-                            <i class="fab fa-cisco hover:text-green-500 transition-colors"></i>
-                            <i class="fas fa-code hover:text-purple-500 transition-colors"></i>
+                            <i class="fas fa-share-alt hover:text-green-500 transition-colors"></i>
+                            <i class="fas fa-brain hover:text-purple-500 transition-colors"></i>
                         </div>
                     </div>
                 </div>
@@ -289,59 +384,59 @@
         <section id="skills" class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold mb-4 text-slate-900 dark:text-white transition-colors">Technical <span class="text-gradient">Stack</span></h2>
-                <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Adapting to any environment, day or night.</p>
+                <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Business analysis, application development, and AI-enabled digital transformation.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- UI/UX Design -->
+                <!-- Programming & Software Development -->
                 <div class="glass-card p-8 rounded-2xl group">
                     <div class="w-14 h-14 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-pink-500 mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-pen-nib text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-4 text-slate-900 dark:text-white transition-colors">UI/UX Design</h3>
-                    <ul class="space-y-3 text-slate-500 dark:text-slate-400 text-sm">
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400 text-xs"></i> Wireframing</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400 text-xs"></i> Prototyping</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400 text-xs"></i> User Research</li>
-                    </ul>
-                </div>
-
-                <!-- Front-End -->
-                <div class="glass-card p-8 rounded-2xl group">
-                    <div class="w-14 h-14 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-solar-accent dark:text-lunar-accent mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-code text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-4 text-slate-900 dark:text-white transition-colors">Front-End Dev</h3>
+                    <h3 class="text-lg font-bold mb-4 text-slate-900 dark:text-white transition-colors">Programming</h3>
                     <ul class="space-y-3 text-slate-500 dark:text-slate-400 text-sm">
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-accent dark:text-lunar-accent text-xs"></i> HTML5 & CSS3</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-accent dark:text-lunar-accent text-xs"></i> JavaScript (ES6+)</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-accent dark:text-lunar-accent text-xs"></i> Tailwind CSS</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400 text-xs"></i> C#</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400 text-xs"></i> ASP.NET</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400 text-xs"></i> JavaScript, HTML5, CSS</li>
                     </ul>
                 </div>
 
-                <!-- Back-End -->
+                <!-- Microsoft Technologies -->
+                <div class="glass-card p-8 rounded-2xl group">
+                    <div class="w-14 h-14 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-solar-accent dark:text-lunar-accent mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fab fa-microsoft text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-4 text-slate-900 dark:text-white transition-colors">Microsoft Tech</h3>
+                    <ul class="space-y-3 text-slate-500 dark:text-slate-400 text-sm">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-accent dark:text-lunar-accent text-xs"></i> SharePoint Online</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-accent dark:text-lunar-accent text-xs"></i> Power Automate</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-accent dark:text-lunar-accent text-xs"></i> Microsoft 365 & Copilot</li>
+                    </ul>
+                </div>
+
+                <!-- Business Intelligence & Analysis -->
                 <div class="glass-card p-8 rounded-2xl group">
                     <div class="w-14 h-14 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-purple-500 dark:text-lunar-glow mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-server text-2xl"></i>
+                        <i class="fas fa-chart-line text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-4 text-slate-900 dark:text-white transition-colors">Back-End Dev</h3>
+                    <h3 class="text-lg font-bold mb-4 text-slate-900 dark:text-white transition-colors">Analysis</h3>
                     <ul class="space-y-3 text-slate-500 dark:text-slate-400 text-sm">
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-xs"></i> ASP.NET Core / C#</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-xs"></i> SQL & Entity</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-xs"></i> API Development</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-xs"></i> Requirements Gathering</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-xs"></i> SDLC & Process Mapping</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-xs"></i> Stakeholder Engagement</li>
                     </ul>
                 </div>
 
-                <!-- Graphic Design -->
+                <!-- AI & Automation -->
                 <div class="glass-card p-8 rounded-2xl group">
                     <div class="w-14 h-14 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-solar-gold mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-palette text-2xl"></i>
+                        <i class="fas fa-robot text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-4 text-slate-900 dark:text-white transition-colors">Graphic Design</h3>
+                    <h3 class="text-lg font-bold mb-4 text-slate-900 dark:text-white transition-colors">AI & Automation</h3>
                     <ul class="space-y-3 text-slate-500 dark:text-slate-400 text-sm">
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-gold text-xs"></i> Branding</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-gold text-xs"></i> Social Media</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-gold text-xs"></i> Digital Assets</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-gold text-xs"></i> Generative AI</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-gold text-xs"></i> Prompt Engineering</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-solar-gold text-xs"></i> Intelligent Automation</li>
                     </ul>
                 </div>
             </div>
@@ -354,26 +449,40 @@
             <div class="max-w-4xl mx-auto space-y-8">
                 <!-- Role 1 -->
                 <div class="glass-card p-8 rounded-2xl border-l-4 border-solar-accent dark:border-lunar-accent relative">
-                    <div class="absolute top-8 right-8 text-xs font-mono text-slate-400 bg-white dark:bg-slate-900 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">Jan 2024 - Jan 2026</div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Freelance Application Developer</h3>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Self Employed</p>
+                    <div class="absolute top-8 right-8 text-xs font-mono text-slate-400 bg-white dark:bg-slate-900 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">Jun 2026 - Present</div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Information Technology Intern</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">City of Cape Town Government</p>
                     <ul class="space-y-2 text-slate-600 dark:text-slate-400 text-sm">
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i>
-                            <span>Developed custom web applications including booking systems, business websites, and portfolio platforms.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i>
-                            <span>Managed full Software Development Life Cycle (SDLC) from requirements gathering to deployment.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i>
-                            <span>Built scalable backend logic and database structures for business workflows.</span>
-                        </li>
+                        <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Support digital transformation, innovation, and technology initiatives within the Information Systems & Technology environment.</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Conduct business analysis activities including requirements gathering, stakeholder engagement, process analysis, and solution documentation.</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Contribute to AI-powered proof-of-concept solutions using Microsoft Copilot, SharePoint, Power Automate, and Microsoft 365 technologies.</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Research emerging technologies, Generative AI capabilities, and automation platforms to support innovation initiatives.</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Document current-state workflows using process analysis and swimlane diagrams, and maintain project artefacts, requirements, and initiative records.</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Support project coordination through meeting records, action tracking, task registers, demand tracking, and SharePoint information management.</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Contribute to staff orientation resources, event-planning guidance, awareness material, and stakeholder workshops.</span></li>
                     </ul>
                 </div>
 
                 <!-- Role 2 -->
+                <div class="glass-card p-8 rounded-2xl border-l-4 border-slate-300 dark:border-slate-600 opacity-80 hover:opacity-100 transition-opacity">
+                    <div class="flex justify-between items-start mb-2">
+                         <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Freelance Full-Stack Developer</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">Amora Digital Solutions</p>
+                         </div>
+                         <span class="text-xs font-mono text-slate-400">Jan 2024 - May 2026</span>
+                    </div>
+                    <div class="text-sm text-slate-600 dark:text-slate-400 space-y-3">
+                        <p>Designed and developed custom software and web-based solutions, building responsive front-end and back-end systems for business needs.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Worked through project stages from initial planning and understanding requirements to implementation and deployment.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Delivered and maintained a varied portfolio of web projects, including business and service websites, using responsive layouts and user-focused design.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Balanced visual presentation with functional requirements to provide clients with practical digital solutions.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Role 3 -->
                 <div class="glass-card p-8 rounded-2xl border-l-4 border-slate-300 dark:border-slate-600 opacity-80 hover:opacity-100 transition-opacity">
                     <div class="flex justify-between items-start mb-2">
                          <div>
@@ -382,19 +491,33 @@
                          </div>
                          <span class="text-xs font-mono text-slate-400">Sep 2022 - Dec 2022</span>
                     </div>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Delivered customer service in a fast-paced operational environment and handled transaction processing.</p>
+                    <div class="text-sm text-slate-600 dark:text-slate-400 space-y-3">
+                        <p>Delivered professional customer service in a busy, fast-paced café environment, helping customers with enquiries, orders, and general requests.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Communicated courteously with customers and responded to their needs throughout their visit.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Managed multiple service requests while maintaining a helpful, professional approach during busy periods.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Worked collaboratively with colleagues to support an efficient customer-service experience.</span></li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Role 3 -->
+                <!-- Role 4 -->
                 <div class="glass-card p-8 rounded-2xl border-l-4 border-slate-300 dark:border-slate-600 opacity-80 hover:opacity-100 transition-opacity">
                     <div class="flex justify-between items-start mb-2">
                          <div>
                             <h3 class="text-xl font-bold text-slate-900 dark:text-white">Office Assistant</h3>
-                            <p class="text-slate-500 dark:text-slate-400 text-sm">Johan Plumbers</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">JNT Engineering</p>
                          </div>
                          <span class="text-xs font-mono text-slate-400">Jan 2021 - Jun 2022</span>
                     </div>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Managed workflow sheets, dispatched tasks to teams, and oversaw daily administrative operations.</p>
+                    <div class="text-sm text-slate-600 dark:text-slate-400 space-y-3">
+                        <p>Provided general administrative and office support at an engineering business, helping maintain records and support daily operations.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Assisted with organising and maintaining office records and documentation.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Supported routine administrative tasks and general office coordination.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-xs mt-1 text-solar-accent dark:text-lunar-accent"></i><span>Helped keep day-to-day business activities organised through reliable administrative assistance.</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -433,7 +556,7 @@
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="mb-2 flex justify-between items-start">
-                            <span class="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded">Front-End</span>
+                            <span class="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded">Educating</span>
                             <a href="https://buildmimi.github.io/TutoringHub/" target="_blank" class="text-slate-400 hover:text-blue-500 transition-colors">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
@@ -554,6 +677,399 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 7: JobSeekers Hackathon -->
+                <div class="glass-card rounded-2xl overflow-hidden group flex flex-col h-full hover:shadow-xl dark:hover:shadow-cyan-900/20 transition-all">
+                    <div class="h-48 w-full bg-gradient-to-br from-blue-900 to-slate-900 flex items-center justify-center overflow-hidden relative">
+                        <div class="text-center z-10">
+                            <i class="fas fa-briefcase text-4xl text-blue-300 mb-3"></i>
+                            <p class="text-sm text-blue-200 tracking-widest uppercase">JobSeekers Hackathon</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="self-start text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded mb-2">Hackathon Project</span>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white transition-colors">JobSeekers Hackathon</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">A project created for the JobSeekers Hackathon.</p>
+                        <div class="mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                            <a href="https://jobseekersportal.netlify.app" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-lg bg-slate-50 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 transition-all text-sm font-medium flex items-center justify-center gap-2">
+                                <span>Visit Project</span>
+                                <i class="fas fa-external-link-alt text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8: DubeDevelop -->
+                <div class="glass-card rounded-2xl overflow-hidden group flex flex-col h-full hover:shadow-xl dark:hover:shadow-cyan-900/20 transition-all">
+                    <div class="h-48 w-full bg-gradient-to-br from-emerald-900 to-slate-900 flex items-center justify-center overflow-hidden relative">
+                        <div class="text-center z-10">
+                            <i class="fas fa-laptop-code text-4xl text-emerald-300 mb-3"></i>
+                            <p class="text-sm text-emerald-200 tracking-widest uppercase">DubeDevelop</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="self-start text-xs font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 px-2 py-1 rounded mb-2">Website</span>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white transition-colors">DubeDevelop</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Explore the DubeDevelop website.</p>
+                        <div class="mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                            <a href="https://dubedevelopers.co.za" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-lg bg-slate-50 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-600 transition-all text-sm font-medium flex items-center justify-center gap-2">
+                                <span>Visit Project</span>
+                                <i class="fas fa-external-link-alt text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9: Gundu Attorneys -->
+                <div class="glass-card rounded-2xl overflow-hidden group flex flex-col h-full hover:shadow-xl dark:hover:shadow-cyan-900/20 transition-all">
+                    <div class="h-48 w-full bg-gradient-to-br from-amber-900 to-slate-900 flex items-center justify-center overflow-hidden relative">
+                        <div class="text-center z-10">
+                            <i class="fas fa-scale-balanced text-4xl text-amber-300 mb-3"></i>
+                            <p class="text-sm text-amber-200 tracking-widest uppercase">Gundu Attorneys</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="self-start text-xs font-mono text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30 px-2 py-1 rounded mb-2">Website</span>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white transition-colors">Gundu Attorneys</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Explore the Gundu Attorneys website.</p>
+                        <div class="mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                            <a href="http://gunduattorneys.co.za" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-lg bg-slate-50 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-amber-500 hover:text-white dark:hover:bg-amber-600 transition-all text-sm font-medium flex items-center justify-center gap-2">
+                                <span>Visit Project</span>
+                                <i class="fas fa-external-link-alt text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10: Manqobatours -->
+                <div class="glass-card rounded-2xl overflow-hidden group flex flex-col h-full hover:shadow-xl dark:hover:shadow-cyan-900/20 transition-all">
+                    <div class="h-48 w-full bg-gradient-to-br from-cyan-900 to-slate-900 flex items-center justify-center overflow-hidden relative">
+                        <div class="text-center z-10">
+                            <i class="fas fa-route text-4xl text-cyan-300 mb-3"></i>
+                            <p class="text-sm text-cyan-200 tracking-widest uppercase">Manqobatours</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="self-start text-xs font-mono text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-900/30 px-2 py-1 rounded mb-2">Website</span>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white transition-colors">Manqobatours.co.za</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Explore the Manqobatours website.</p>
+                        <div class="mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                            <a href="https://manqobatours.co.za" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-lg bg-slate-50 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-cyan-500 hover:text-white dark:hover:bg-cyan-600 transition-all text-sm font-medium flex items-center justify-center gap-2">
+                                <span>Visit Project</span>
+                                <i class="fas fa-external-link-alt text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 11: MECS Engineering -->
+                <div class="glass-card rounded-2xl overflow-hidden group flex flex-col h-full hover:shadow-xl dark:hover:shadow-cyan-900/20 transition-all">
+                    <div class="h-48 w-full bg-gradient-to-br from-violet-900 to-slate-900 flex items-center justify-center overflow-hidden relative">
+                        <div class="text-center z-10">
+                            <i class="fas fa-gears text-4xl text-violet-300 mb-3"></i>
+                            <p class="text-sm text-violet-200 tracking-widest uppercase">MECS Engineering</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="self-start text-xs font-mono text-violet-600 dark:text-violet-400 bg-violet-50 dark:bg-violet-900/30 px-2 py-1 rounded mb-2">Website</span>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white transition-colors">MECS Engineering</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Professional Mechanical Consulting website.</p>
+                        <div class="mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                            <a href="https://malu-ecs.co.za/" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-lg bg-slate-50 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-violet-500 hover:text-white dark:hover:bg-violet-600 transition-all text-sm font-medium flex items-center justify-center gap-2">
+                                <span>Visit Project</span>
+                                <i class="fas fa-external-link-alt text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collaborative Projects and Activities -->
+        <section id="activities" class="container mx-auto px-6 scroll-mt-28">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-14">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-5 text-slate-900 dark:text-white transition-colors">
+                        Projects <span class="text-gradient">&amp; Activities</span>
+                    </h2>
+                    <p class="text-lg text-slate-700 dark:text-slate-300 font-serif italic mb-4">Mihle Siguqu <span class="text-slate-400 dark:text-slate-500">(Internship Portfolio)</span></p>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed max-w-4xl mx-auto">
+                        This portfolio showcases the projects, research initiatives, business analysis activities, innovation programmes, process improvement efforts, and proof-of-concept developments completed during my internship within the Sm@rtCape Research &amp; Development environment at the City of Cape Town. The work spans digital transformation, artificial intelligence, solution design, stakeholder engagement, innovation management, and Power Platform development.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-6">
+                    <details class="glass-card rounded-2xl p-7 md:p-8 group">
+                        <summary class="list-none cursor-pointer flex items-center justify-between gap-4 mb-6 [&::-webkit-details-marker]:hidden">
+                            <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 shrink-0 rounded-xl bg-sky-100 dark:bg-sky-900/30 text-sky-600 dark:text-sky-300 flex items-center justify-center"><i class="fas fa-laptop-file text-xl"></i></div>
+                            <div>
+                                <p class="text-xs uppercase tracking-widest text-sky-600 dark:text-sky-300 font-semibold">Sm@rtShop IT Equipment <span class="text-[10px] tracking-wider text-solar-accent dark:text-lunar-accent font-bold ml-2">Team work</span></p>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Procurement Process Analysis</h3>
+                            </div>
+                            </div>
+                            <i class="fas fa-chevron-down text-slate-400 transition-transform duration-200 group-open:rotate-180" aria-hidden="true"></i>
+                        </summary>
+                        <div class="space-y-6">
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Procurement Process Analysis and Swimlane Development</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Mapped the end-to-end IT equipment procurement workflow, identifying stakeholders, responsibilities, activities, decision points, approvals, and handovers. The swimlane made the current process easier to understand and gave stakeholders a foundation for identifying inefficiencies, system enhancements, and process improvements.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Meeting Administration and Documentation</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Recorded discussions, decisions, and action items, and maintained accurate meeting records to support accountability, stakeholder communication, project execution, and governance.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="glass-card rounded-2xl p-7 md:p-8 group">
+                        <summary class="list-none cursor-pointer flex items-center justify-between gap-4 mb-6 [&::-webkit-details-marker]:hidden">
+                            <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 shrink-0 rounded-xl bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-300 flex items-center justify-center"><i class="fas fa-boxes-stacked text-xl"></i></div>
+                            <div>
+                                <p class="text-xs uppercase tracking-widest text-amber-600 dark:text-amber-300 font-semibold">Sm@rtShop Branded Goods <span class="text-[10px] tracking-wider text-solar-accent dark:text-lunar-accent font-bold ml-2">Team work</span></p>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Inventory Management</h3>
+                            </div>
+                            </div>
+                            <i class="fas fa-chevron-down text-slate-400 transition-transform duration-200 group-open:rotate-180" aria-hidden="true"></i>
+                        </summary>
+                        <div class="space-y-6">
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Business Discovery and Requirements Gathering</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Engaged branding and operational stakeholders through workshops to understand solution requirements, current inventory practices, and operational challenges. Findings informed future implementation planning and solution design.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Stakeholder Workshop Preparation</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Prepared structured business analysis questions to surface pain points, understand existing processes, and identify opportunities for improvement and technology recommendations.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Inventory Management Process Swimlane</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Created an As-Is swimlane documenting workflows, stakeholder responsibilities, dependencies, and information flows. The diagram supported stakeholder presentations, process reviews, and future solution design.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="glass-card rounded-2xl p-7 md:p-8 group">
+                        <summary class="list-none cursor-pointer flex items-center justify-between gap-4 mb-6 [&::-webkit-details-marker]:hidden">
+                            <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 shrink-0 rounded-xl bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-300 flex items-center justify-center"><i class="fas fa-lightbulb text-xl"></i></div>
+                            <div>
+                                <p class="text-xs uppercase tracking-widest text-violet-600 dark:text-violet-300 font-semibold">Sm@rtCape Research &amp; Development</p>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Research, Enablement &amp; Operations</h3>
+                            </div>
+                            </div>
+                            <i class="fas fa-chevron-down text-slate-400 transition-transform duration-200 group-open:rotate-180" aria-hidden="true"></i>
+                        </summary>
+                        <div class="space-y-6">
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">AI Video Creation Research</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Evaluated CapCut, Clipchamp, and NotebookLM for usability, functionality, content creation, and automation, identifying potential uses in awareness campaigns and project demonstrations.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Employee and Intern Orientation Pack</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Researched organisational information, consulted stakeholders, and documented processes, policies, systems, and departmental operations to create practical onboarding guidance. This ongoing work aims to strengthen readiness and onboarding effectiveness.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Task Planning and Productivity Tool Research</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Compared SharePoint Lists, Microsoft Planner, Microsoft To Do, SharePoint Tasks, OneNote, and Excel for collaboration, workload management, reporting, and task tracking to inform team productivity discussions.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Team Task Management and Demand Tracking</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Maintained the departmental task register, action tracker, and demand list; updated statuses and priorities, monitored progress, reported outstanding work, and supported workload planning.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">AI Innovation Discovery with Councillor Services</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Explored stakeholder needs and potential AI proof-of-concepts, including intelligent search and automated meeting minutes to improve information retrieval and knowledge management.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Sm@rtCape Purpose Statement and Awareness Campaign</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Helped develop communication and awareness materials explaining the R&amp;D team's purpose, objectives, innovation mandate, and digital transformation work.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">SharePoint Information Management</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Organised project repositories, uploaded artefacts, updated records, and maintained accessible, governed documentation to support collaboration.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Standardised Proof of Concept Framework</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Contributed to a standard PoC initiation template establishing repeatable governance, consistency, and documentation practices for innovation initiatives.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Events Planning Orientation Resource</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400 mb-3">Developed an orientation pack to simplify and standardise event planning, drawing on organisational research and cross-department stakeholder input.</p>
+                                <ul class="grid sm:grid-cols-2 gap-x-4 gap-y-2 text-xs text-slate-500 dark:text-slate-400">
+                                    <li><i class="fas fa-check text-violet-400 mr-2"></i>Procedures and approvals</li>
+                                    <li><i class="fas fa-check text-violet-400 mr-2"></i>Venue bookings</li>
+                                    <li><i class="fas fa-check text-violet-400 mr-2"></i>Communications</li>
+                                    <li><i class="fas fa-check text-violet-400 mr-2"></i>Security and visitor management</li>
+                                    <li><i class="fas fa-check text-violet-400 mr-2"></i>Catering and AV requirements</li>
+                                    <li><i class="fas fa-check text-violet-400 mr-2"></i>Budgeting and compliance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="glass-card rounded-2xl p-7 md:p-8 group">
+                        <summary class="list-none cursor-pointer flex items-center justify-between gap-4 mb-6 [&::-webkit-details-marker]:hidden">
+                            <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 shrink-0 rounded-xl bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-300 flex items-center justify-center"><i class="fas fa-user-check text-xl"></i></div>
+                            <div>
+                                <p class="text-xs uppercase tracking-widest text-rose-600 dark:text-rose-300 font-semibold">HR Shortlisting Recommendations Agent</p>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Recruitment Proof of Concept</h3>
+                            </div>
+                            </div>
+                            <i class="fas fa-chevron-down text-slate-400 transition-transform duration-200 group-open:rotate-180" aria-hidden="true"></i>
+                        </summary>
+                        <div class="space-y-6">
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Initiative Documentation and Business Analysis</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Supported the AI-assisted bulk recruitment PoC by developing its initiation document, capturing requirements, defining the problem and objectives, mapping recruitment workflows, documenting architecture, scope, benefits, success measures, and project artefacts. The concept supports HR teams while retaining human oversight of recruitment decisions.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">User Requirements Management</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Maintained the user requirements repository through stakeholder workshops, documenting business rules, use cases, and functional and non-functional specifications for planning, design, and implementation.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Power Automate Recruitment Solution Prototype</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Designed and documented a prototype using Power Automate, SharePoint Lists, and SharePoint Document Libraries to collect candidate information, extract submitted document data, and update central recruitment records. The design established a basis for future AI-assisted evaluations and recommended Power Apps for a user-facing interface.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">HR Shortlisting Closure Documentation</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Contributed to the ongoing closure report covering solution architecture, technical stack, process improvements, future recommendations, updated swimlanes, outcomes, and lessons learnt for knowledge transfer and governance.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="glass-card rounded-2xl p-7 md:p-8 group">
+                        <summary class="list-none cursor-pointer flex items-center justify-between gap-4 mb-6 [&::-webkit-details-marker]:hidden">
+                            <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 shrink-0 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-300 flex items-center justify-center"><i class="fas fa-compass text-xl"></i></div>
+                            <div>
+                                <p class="text-xs uppercase tracking-widest text-emerald-600 dark:text-emerald-300 font-semibold">VIKI Initiative <span class="text-[10px] tracking-wider text-solar-accent dark:text-lunar-accent font-bold ml-2">Team work</span></p>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Documentation &amp; Readiness</h3>
+                            </div>
+                            </div>
+                            <i class="fas fa-chevron-down text-slate-400 transition-transform duration-200 group-open:rotate-180" aria-hidden="true"></i>
+                        </summary>
+                        <div class="space-y-6">
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">VIKI Proof of Concept Documentation</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Consolidated initiative objectives, proposed capabilities, stakeholder requirements, and implementation considerations to support planning, engagement, and governance.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">VIKI Awareness and Promotional Videos</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Developed promotional video concepts using AI video tools to support awareness and adoption, while researching alternative technologies for future communications.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Site Assessments and Implementation Planning</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Conducted site assessments and room measurements, documented physical layouts and environmental considerations, and supported implementation preparation.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="glass-card rounded-2xl p-7 md:p-8 group">
+                        <summary class="list-none cursor-pointer flex items-center justify-between gap-4 mb-6 [&::-webkit-details-marker]:hidden">
+                            <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 shrink-0 rounded-xl bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-300 flex items-center justify-center"><i class="fas fa-robot text-xl"></i></div>
+                            <div>
+                                <p class="text-xs uppercase tracking-widest text-cyan-600 dark:text-cyan-300 font-semibold">Copilot and AI Innovation</p>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">AI Proofs of Concept</h3>
+                            </div>
+                            </div>
+                            <i class="fas fa-chevron-down text-slate-400 transition-transform duration-200 group-open:rotate-180" aria-hidden="true"></i>
+                        </summary>
+                        <div class="space-y-6">
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Copilot Search Engine Proof of Concept</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Worked with stakeholders to identify information retrieval challenges and demonstrate a Copilot-powered search experience for more accessible organisational knowledge and faster, more productive information discovery. The demonstration generated stakeholder interest and further implementation discussions.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Minutes of Meeting AI Agent</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Developed and demonstrated a Copilot-powered agent that generates structured meeting minutes from transcripts, recordings, and reference documents, showing how to reduce administration, improve consistency, and accelerate follow-up while retaining human review and approval.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">AI Governance and Initiative Tracking <span class="text-[10px] uppercase tracking-wider text-solar-accent dark:text-lunar-accent font-bold ml-2">Team work</span></h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Maintained AI initiative records in GitLab to improve visibility, governance, reporting, progress tracking, and organisational oversight of innovation work.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="glass-card rounded-2xl p-7 md:p-8 lg:col-span-2 group">
+                        <summary class="list-none cursor-pointer flex items-center justify-between gap-4 mb-6 [&::-webkit-details-marker]:hidden">
+                            <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 shrink-0 rounded-xl bg-fuchsia-100 dark:bg-fuchsia-900/30 text-fuchsia-600 dark:text-fuchsia-300 flex items-center justify-center"><i class="fas fa-trophy text-xl"></i></div>
+                            <div>
+                                <p class="text-xs uppercase tracking-widest text-fuchsia-600 dark:text-fuchsia-300 font-semibold">Innovation Challenges &amp; Hackathons</p>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Designing Inclusive Civic Solutions <span class="text-[10px] uppercase tracking-wider text-solar-accent dark:text-lunar-accent font-bold ml-2">Team work</span></h3>
+                            </div>
+                            </div>
+                            <i class="fas fa-chevron-down text-slate-400 transition-transform duration-200 group-open:rotate-180" aria-hidden="true"></i>
+                        </summary>
+                        <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">CS Digital Innovation Programme — CitySkyLink</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Developed five concepts exploring how technology could shape Cape Town by 2050. CVConnect, CitySkyLink, and BoB were shortlisted. CitySkyLink reached the top seven and placed fifth. Contributions included concept development, presentation and marketing materials, demonstration setup, and stakeholder pitching.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">CS Digital Innovation Finalist Presentation</h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">After selection among the top seven of 44 submissions, refined the concept, strengthened the business case and presentation, and delivered the final pitch to judges and stakeholders.</p>
+                            </div>
+                            <div class="border-t border-slate-200 dark:border-white/10 pt-5">
+                                <div class="flex justify-between gap-3 items-start mb-2"><h4 class="font-semibold text-slate-800 dark:text-slate-200">Civic Portal — Job Seekers Hackathon <span class="text-[10px] uppercase tracking-wider text-solar-accent dark:text-lunar-accent font-bold ml-2">Team work</span></h4></div>
+                                <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">Conceptualised a more accessible way to connect job seekers with municipal employment opportunities and career support. Work included user research, problem analysis, requirements gathering, process design, solution concept development, presentation, and stakeholder engagement.</p>
+                                <a href="https://www.linkedin.com/posts/cityofct_2026-hackathon-looks-to-improve-epwp-recruitment-activity-7483476365762199552-YkBr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-solar-accent dark:text-lunar-accent hover:underline">
+                                    <span>View the City of Cape Town’s EPWP Jobseekers Hackathon winners post</span>
+                                    <i class="fas fa-external-link-alt text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="glass-card rounded-2xl p-7 md:p-9 mt-8">
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Skills Demonstrated</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Across these initiatives, we applied a broad mix of analytical, technical, and collaboration skills.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Business Analysis</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Process Mapping &amp; Swimlanes</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Requirements Gathering</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Stakeholder Engagement</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">AI &amp; Copilot Solutions</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Power Automate</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">SharePoint Administration</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Solution Design</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Project Documentation</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Innovation Management</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Digital Transformation</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Research &amp; Evaluation</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Technical Writing</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Workshop Facilitation</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Process Improvement</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Change Enablement</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Presentation Development</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Hackathons &amp; Innovation Programmes</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Event Planning &amp; Coordination</span>
+                        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs">Information Management &amp; Governance</span>
+                    </div>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mt-7 pt-6 border-t border-slate-200 dark:border-white/10">
+                        Together, these projects reflect practical experience delivering digital innovation, proofs of concept, business process improvements, and AI-enabled solutions in a municipal government environment.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education" class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center text-slate-900 dark:text-white transition-colors">Education <span class="text-gradient">& Qualifications</span></h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-card p-8 rounded-2xl border-l-4 border-solar-accent dark:border-lunar-accent">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">National Diploma: Application Development (ICT)</h3>
+                            <p class="text-slate-500 dark:text-slate-400 mt-2">Durban University of Technology (DUT)</p>
+                        </div>
+                        <span class="inline-flex items-center px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium">NQF Level 6 | 2023–2025</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -611,6 +1127,26 @@
                         <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Cisco</p>
                     </div>
                 </div>
+                <!-- Certificate 6 -->
+                <div class="glass-card rounded-xl overflow-hidden group hover:border-cyan-300 dark:hover:border-cyan-500 transition-all hover:shadow-lg">
+                    <div class="h-40 overflow-hidden bg-gradient-to-br from-sky-900 via-sky-700 to-cyan-500 flex items-center justify-center">
+                        <img src="C7.jpg" alt="City of Cape Town C7 certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 bg-white/50 dark:bg-slate-800/50">
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm">City of Cape Town Certificate</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">2026</p>
+                    </div>
+                </div>
+                <!-- Certificate 7 -->
+                <div class="glass-card rounded-xl overflow-hidden group hover:border-indigo-300 dark:hover:border-indigo-500 transition-all hover:shadow-lg">
+                    <div class="h-40 overflow-hidden bg-gradient-to-br from-indigo-900 via-violet-700 to-indigo-500 flex items-center justify-center">
+                        <img src="C8.jpg" alt="City of Cape Town C8 certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 bg-white/50 dark:bg-slate-800/50">
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm">City of Cape Town Certificate</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">2026</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -624,7 +1160,7 @@
                     <div class="glass-card p-10 rounded-2xl">
                         <h3 class="text-2xl font-serif font-bold mb-6 text-slate-900 dark:text-white">Get in Touch</h3>
                         <p class="text-slate-600 dark:text-slate-400 mb-8 font-light leading-relaxed">
-                            I am currently available for learnerships and freelance projects. Let's discuss how I can add value to your team with elegant, efficient solutions.
+                            I am currently contributing to digital transformation and innovation initiatives, with a focus on software development, business analysis, and AI-powered solutions that improve service delivery and operational efficiency.
                         </p>
 
                         <div class="space-y-6">
@@ -640,7 +1176,7 @@
                                 </div>
                                 <span class="font-medium">+27 63 532 1092</span>
                             </a>
-                            <a href="https://linkedin.com/in/mihle-siguqu" target="_blank" class="flex items-center gap-4 text-slate-600 dark:text-slate-400 hover:text-solar-accent dark:hover:text-lunar-accent transition-colors group">
+                            <a href="https://www.linkedin.com/in/mihle-siguqu" target="_blank" class="flex items-center gap-4 text-slate-600 dark:text-slate-400 hover:text-solar-accent dark:hover:text-lunar-accent transition-colors group">
                                 <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-300 group-hover:bg-solar-accent dark:group-hover:bg-lunar-accent group-hover:text-white transition-all shadow-sm">
                                     <i class="fab fa-linkedin-in"></i>
                                 </div>
@@ -651,6 +1187,12 @@
                                     <i class="fab fa-github"></i>
                                 </div>
                                 <span class="font-medium">GitHub Profile</span>
+                            </a>
+                            <a href="https://buildmimi.github.io/TutoringHub/" target="_blank" class="flex items-center gap-4 text-slate-600 dark:text-slate-400 hover:text-solar-accent dark:hover:text-lunar-accent transition-colors group">
+                                <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-300 group-hover:bg-solar-accent dark:group-hover:bg-lunar-accent group-hover:text-white transition-all shadow-sm">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <span class="font-medium">Portfolio | Projects</span>
                             </a>
                         </div>
                     </div>
@@ -702,6 +1244,7 @@
                         <ul class="space-y-4 text-slate-500 dark:text-slate-400 text-sm">
                             <li><a href="#about" class="hover:text-solar-accent dark:hover:text-lunar-accent hover:translate-x-1 transition-all inline-block">About Me</a></li>
                             <li><a href="#projects" class="hover:text-solar-accent dark:hover:text-lunar-accent hover:translate-x-1 transition-all inline-block">Selected Work</a></li>
+                            <li><a href="#activities" class="hover:text-solar-accent dark:hover:text-lunar-accent hover:translate-x-1 transition-all inline-block">Internship Work</a></li>
                             <li><a href="#skills" class="hover:text-solar-accent dark:hover:text-lunar-accent hover:translate-x-1 transition-all inline-block">Technical Stack</a></li>
                             <li><a href="#contact" class="hover:text-solar-accent dark:hover:text-lunar-accent hover:translate-x-1 transition-all inline-block">Get in Touch</a></li>
                             <!-- CV Download in Footer -->
@@ -741,6 +1284,93 @@
             <i class="fab fa-whatsapp text-3xl text-green-500 group-hover:text-white transition-colors duration-300"></i>
         </div>
     </a>
+
+    <section aria-label="Portfolio Q&A assistant" class="fixed bottom-24 right-4 z-[55]">
+        <div id="portfolioBotPanel" role="region" aria-labelledby="portfolioBotTitle" hidden class="mb-3 flex h-[min(36rem,calc(100vh-9rem))] w-[min(24rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-900">
+            <div class="flex items-center justify-between gap-3 bg-slate-900 px-4 py-4 text-white dark:bg-slate-800">
+                <div>
+                    <h2 id="portfolioBotTitle" class="text-lg font-bold">Portfolio Assistant</h2>
+                    <p class="text-xs text-slate-300">Answers about Mihle’s CV and portfolio</p>
+                </div>
+                <button id="portfolioBotClose" type="button" aria-label="Close portfolio assistant" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-white hover:bg-white/10">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div id="portfolioBotMessages" role="log" aria-live="polite" aria-relevant="additions" aria-label="Conversation" class="flex-1 space-y-3 overflow-y-auto bg-slate-50 p-4 dark:bg-slate-950">
+                <div class="max-w-[90%] rounded-2xl rounded-tl-sm bg-white p-3 text-sm leading-relaxed text-slate-700 shadow-sm dark:bg-slate-800 dark:text-slate-200">
+                    Hello! I can answer questions using information in this portfolio and CV. If something isn’t covered, I’ll point you to Mihle’s contact details rather than guess.
+                </div>
+            </div>
+
+            <div class="border-t border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-900">
+                <div class="mb-3 flex flex-wrap gap-2" aria-label="Suggested questions">
+                    <button type="button" data-bot-question="What technologies and skills does Mihle have?" class="rounded-full border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800">Skills</button>
+                    <button type="button" data-bot-question="What is Mihle’s current role?" class="rounded-full border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800">Current role</button>
+                    <button type="button" data-bot-question="What projects has Mihle worked on?" class="rounded-full border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800">Projects</button>
+                    <button type="button" data-bot-question="How can I contact Mihle?" class="rounded-full border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800">Contact</button>
+                </div>
+                <form id="portfolioBotForm" class="flex items-end gap-2">
+                    <label for="portfolioBotInput" class="sr-only">Ask a question about Mihle’s CV or portfolio</label>
+                    <input id="portfolioBotInput" type="text" maxlength="300" autocomplete="off" class="min-w-0 flex-1 rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm text-slate-900 placeholder:text-slate-500 focus:border-solar-accent dark:border-slate-600 dark:bg-slate-800 dark:text-white" placeholder="Ask about skills, projects…" required>
+                    <button type="submit" aria-label="Send question" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-900 text-white hover:bg-slate-700 dark:bg-lunar-accent dark:text-slate-900 dark:hover:opacity-90">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                    </button>
+                </form>
+                <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400">Answers are based only on this portfolio. Your questions are not sent to a server.</p>
+            </div>
+        </div>
+        <button id="portfolioBotToggle" type="button" aria-expanded="false" aria-controls="portfolioBotPanel" class="ml-auto flex min-h-12 items-center gap-2 rounded-full border-2 border-slate-900 bg-white px-4 py-3 text-sm font-bold text-slate-900 shadow-xl hover:bg-slate-100 focus-visible:outline-offset-4 dark:border-white dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800">
+            <i class="fas fa-comment-dots text-lg" aria-hidden="true"></i>
+            <span>Ask about Mihle</span>
+        </button>
+    </section>
+
+    <section aria-label="Accessibility tools" class="fixed bottom-4 left-4 z-[60]">
+        <div id="accessibilityPanel" role="region" aria-labelledby="accessibilityTitle" hidden class="mb-3 w-[min(22rem,calc(100vw-2rem))] rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 shadow-2xl">
+            <div class="flex items-start justify-between gap-3 mb-4">
+                <div>
+                    <h2 id="accessibilityTitle" class="text-lg font-bold text-slate-900 dark:text-white">Accessibility tools</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Adjust how this page looks and sounds.</p>
+                </div>
+                <button id="accessibilityClose" type="button" aria-label="Close accessibility tools" class="w-9 h-9 shrink-0 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div class="mb-5">
+                <p id="fontSizeLabel" class="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">Text size: 100%</p>
+                <div class="grid grid-cols-3 gap-2" role="group" aria-labelledby="fontSizeLabel">
+                    <button id="fontDecrease" type="button" class="rounded-lg border border-slate-300 dark:border-slate-600 px-3 py-2 text-sm font-semibold text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Decrease text size">A−</button>
+                    <button id="fontReset" type="button" class="rounded-lg border border-slate-300 dark:border-slate-600 px-3 py-2 text-sm font-semibold text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Reset</button>
+                    <button id="fontIncrease" type="button" class="rounded-lg border border-slate-300 dark:border-slate-600 px-3 py-2 text-lg font-semibold text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Increase text size">A+</button>
+                </div>
+            </div>
+
+            <div class="space-y-2 mb-5">
+                <button id="contrastToggle" type="button" aria-pressed="false" class="w-full rounded-lg border border-slate-300 dark:border-slate-600 px-3 py-2 text-left text-sm font-medium text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">High contrast</button>
+                <button id="readableFontToggle" type="button" aria-pressed="false" class="w-full rounded-lg border border-slate-300 dark:border-slate-600 px-3 py-2 text-left text-sm font-medium text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Readable font</button>
+                <button id="spacingToggle" type="button" aria-pressed="false" class="w-full rounded-lg border border-slate-300 dark:border-slate-600 px-3 py-2 text-left text-sm font-medium text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Increase text spacing</button>
+                <button id="underlineToggle" type="button" aria-pressed="false" class="w-full rounded-lg border border-slate-300 dark:border-slate-600 px-3 py-2 text-left text-sm font-medium text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Underline links</button>
+                <button id="motionToggle" type="button" aria-pressed="false" class="w-full rounded-lg border border-slate-300 dark:border-slate-600 px-3 py-2 text-left text-sm font-medium text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Reduce motion</button>
+            </div>
+
+            <div class="border-t border-slate-200 dark:border-slate-700 pt-4">
+                <h3 class="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">Read page aloud</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    <button id="readerStart" type="button" class="rounded-lg bg-slate-900 dark:bg-lunar-accent px-3 py-2 text-sm font-semibold text-white dark:text-slate-900 hover:opacity-90">Read page</button>
+                    <button id="readerPause" type="button" disabled class="rounded-lg border border-slate-300 dark:border-slate-600 px-3 py-2 text-sm font-semibold text-slate-800 dark:text-slate-100 disabled:opacity-50">Pause</button>
+                    <button id="readerResume" type="button" disabled class="rounded-lg border border-slate-300 dark:border-slate-600 px-3 py-2 text-sm font-semibold text-slate-800 dark:text-slate-100 disabled:opacity-50">Resume</button>
+                    <button id="readerStop" type="button" disabled class="rounded-lg border border-slate-300 dark:border-slate-600 px-3 py-2 text-sm font-semibold text-slate-800 dark:text-slate-100 disabled:opacity-50">Stop</button>
+                </div>
+            </div>
+            <p id="accessibilityStatus" role="status" aria-live="polite" class="text-xs text-slate-500 dark:text-slate-400 mt-3"></p>
+        </div>
+        <button id="accessibilityToggle" type="button" aria-expanded="false" aria-controls="accessibilityPanel" class="flex min-h-12 items-center gap-2 rounded-full border-2 border-slate-900 bg-white px-4 py-3 text-sm font-bold text-slate-900 shadow-xl hover:bg-slate-100 focus-visible:outline-offset-4 dark:border-white dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800">
+            <i class="fas fa-universal-access text-lg" aria-hidden="true"></i>
+            <span>Accessibility</span>
+        </button>
+    </section>
 
     <!-- Enhanced Case Study Modal (Dual Mode) -->
     <div id="caseStudyModal" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm hidden overflow-y-auto">
@@ -952,6 +1582,367 @@
 
         document.getElementById('caseStudyModal').addEventListener('click', (e) => {
             if (e.target.id === 'caseStudyModal') closeModal();
+        });
+    </script>
+
+    <script>
+        const accessibilityPanel = document.getElementById('accessibilityPanel');
+        const accessibilityToggle = document.getElementById('accessibilityToggle');
+        const accessibilityStatus = document.getElementById('accessibilityStatus');
+        const rootElement = document.documentElement;
+        let textScale = 100;
+        let activeUtterance = null;
+
+        function announceAccessibilityStatus(message) {
+            accessibilityStatus.textContent = message;
+        }
+
+        function setTextScale(scale) {
+            textScale = Math.max(80, Math.min(150, scale));
+            rootElement.style.fontSize = `${textScale}%`;
+            document.getElementById('fontSizeLabel').textContent = `Text size: ${textScale}%`;
+            announceAccessibilityStatus(`Text size set to ${textScale} percent.`);
+        }
+
+        document.getElementById('fontDecrease').addEventListener('click', () => setTextScale(textScale - 10));
+        document.getElementById('fontIncrease').addEventListener('click', () => setTextScale(textScale + 10));
+        document.getElementById('fontReset').addEventListener('click', () => setTextScale(100));
+
+        function connectAccessibilityToggle(buttonId, className, enabledMessage, disabledMessage) {
+            const button = document.getElementById(buttonId);
+            button.addEventListener('click', () => {
+                const enabled = rootElement.classList.toggle(className);
+                button.setAttribute('aria-pressed', String(enabled));
+                announceAccessibilityStatus(enabled ? enabledMessage : disabledMessage);
+            });
+        }
+
+        connectAccessibilityToggle('contrastToggle', 'a11y-high-contrast', 'High contrast enabled.', 'High contrast disabled.');
+        connectAccessibilityToggle('readableFontToggle', 'a11y-readable-font', 'Readable font enabled.', 'Readable font disabled.');
+        connectAccessibilityToggle('spacingToggle', 'a11y-increased-spacing', 'Increased text spacing enabled.', 'Increased text spacing disabled.');
+        connectAccessibilityToggle('underlineToggle', 'a11y-underline-links', 'Link underlining enabled.', 'Link underlining disabled.');
+        connectAccessibilityToggle('motionToggle', 'a11y-reduced-motion', 'Reduced motion enabled.', 'Reduced motion disabled.');
+
+        function closeAccessibilityPanel(returnFocus) {
+            accessibilityPanel.hidden = true;
+            accessibilityToggle.setAttribute('aria-expanded', 'false');
+            if (returnFocus) accessibilityToggle.focus();
+        }
+
+        accessibilityToggle.addEventListener('click', () => {
+            const willOpen = accessibilityPanel.hidden;
+            accessibilityPanel.hidden = !willOpen;
+            accessibilityToggle.setAttribute('aria-expanded', String(willOpen));
+            if (willOpen) {
+                document.getElementById('fontDecrease').focus();
+            }
+        });
+
+        document.getElementById('accessibilityClose').addEventListener('click', () => closeAccessibilityPanel(true));
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !accessibilityPanel.hidden) {
+                closeAccessibilityPanel(true);
+            }
+        });
+
+        const readerStart = document.getElementById('readerStart');
+        const readerPause = document.getElementById('readerPause');
+        const readerResume = document.getElementById('readerResume');
+        const readerStop = document.getElementById('readerStop');
+        const hasSpeechSynthesis = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+
+        function updateReaderControls() {
+            const isSpeaking = hasSpeechSynthesis && window.speechSynthesis.speaking;
+            const isPaused = hasSpeechSynthesis && window.speechSynthesis.paused;
+            readerPause.disabled = !isSpeaking || isPaused;
+            readerResume.disabled = !isSpeaking || !isPaused;
+            readerStop.disabled = !isSpeaking;
+        }
+
+        if (!hasSpeechSynthesis) {
+            readerStart.disabled = true;
+            readerPause.disabled = true;
+            readerResume.disabled = true;
+            readerStop.disabled = true;
+            announceAccessibilityStatus('Text-to-speech is not supported by this browser. Other accessibility tools are available.');
+        } else {
+            readerStart.addEventListener('click', () => {
+                const selection = window.getSelection();
+                const selectedText = selection && selection.toString().trim();
+                const selectedInsideMain = selection && selection.anchorNode && document.getElementById('main-content').contains(selection.anchorNode);
+                const textToRead = selectedText && selectedInsideMain
+                    ? selectedText
+                    : `${document.querySelector('header').innerText} ${document.getElementById('main-content').innerText}`.replace(/\s+/g, ' ').trim();
+
+                if (!textToRead) {
+                    announceAccessibilityStatus('There is no page text available to read.');
+                    return;
+                }
+
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(textToRead);
+                activeUtterance = utterance;
+                utterance.lang = document.documentElement.lang || 'en';
+                utterance.onstart = () => {
+                    if (activeUtterance === utterance) announceAccessibilityStatus(selectedText && selectedInsideMain ? 'Reading selected text.' : 'Reading page.');
+                    updateReaderControls();
+                };
+                utterance.onend = () => {
+                    if (activeUtterance === utterance) {
+                        activeUtterance = null;
+                        announceAccessibilityStatus('Finished reading.');
+                    }
+                    updateReaderControls();
+                };
+                utterance.onerror = (event) => {
+                    if (activeUtterance === utterance && event.error !== 'canceled') {
+                        activeUtterance = null;
+                        announceAccessibilityStatus('Text-to-speech could not read this text. Please try again.');
+                    }
+                    updateReaderControls();
+                };
+                window.speechSynthesis.speak(utterance);
+                announceAccessibilityStatus('Starting text-to-speech.');
+                updateReaderControls();
+            });
+
+            readerPause.addEventListener('click', () => {
+                if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+                    window.speechSynthesis.pause();
+                    announceAccessibilityStatus('Reading paused.');
+                    updateReaderControls();
+                }
+            });
+
+            readerResume.addEventListener('click', () => {
+                if (window.speechSynthesis.paused) {
+                    window.speechSynthesis.resume();
+                    announceAccessibilityStatus('Reading resumed.');
+                    updateReaderControls();
+                }
+            });
+
+            readerStop.addEventListener('click', () => {
+                activeUtterance = null;
+                window.speechSynthesis.cancel();
+                announceAccessibilityStatus('Reading stopped.');
+                updateReaderControls();
+            });
+        }
+    </script>
+
+    <script>
+        const portfolioBotPanel = document.getElementById('portfolioBotPanel');
+        const portfolioBotToggle = document.getElementById('portfolioBotToggle');
+        const portfolioBotInput = document.getElementById('portfolioBotInput');
+        const portfolioBotMessages = document.getElementById('portfolioBotMessages');
+        const portfolioBotForm = document.getElementById('portfolioBotForm');
+        const portfolioContactLinks = [
+            { text: 'Go to contact details', href: '#contact' },
+            { text: 'Message Mihle on WhatsApp', href: 'https://wa.me/27635321092', target: '_blank' }
+        ];
+        const portfolioAnswers = [
+            {
+                terms: ['contact', 'email', 'phone', 'whatsapp', 'reach mihle', 'get in touch'],
+                answer: 'You can contact Mihle by email, phone, LinkedIn, or WhatsApp using the details on the contact section.',
+                links: portfolioContactLinks
+            },
+            {
+                terms: ['cv', 'resume', 'curriculum vitae', 'download'],
+                answer: 'Mihle’s CV is available to download from the buttons near the top of the portfolio and in the footer.',
+                links: [{ text: 'Go to contact and CV links', href: '#contact' }]
+            },
+            {
+                terms: ['education', 'qualification', 'degree', 'diploma', 'study', 'studied'],
+                answer: 'Mihle completed a National Diploma in Application Development (ICT) at Durban University of Technology. The portfolio lists NQF Level 6 and 2023–2025.',
+                links: [{ text: 'View education', href: '#education' }]
+            },
+            {
+                terms: ['certification', 'certified', 'certificate', 'azure ai fundamentals', 'cybersecurity'],
+                answer: 'The portfolio lists Azure AI Fundamentals and Generative AI (Microsoft), plus Cybersecurity, Linux Unhatched, and Packet Tracer (Cisco).',
+                links: [{ text: 'View certifications', href: '#certifications' }]
+            },
+            {
+                terms: ['current role', 'current job', 'current position', 'what role', 'what does mihle do', 'what does she do', 'internship role', 'internship', 'job title'],
+                answer: 'Mihle’s current role is Information Technology Intern at the City of Cape Town Government, listed as starting in June 2026. The work includes digital transformation, business analysis, AI proofs of concept, research, and project support.',
+                links: [{ text: 'View work experience', href: '#experience' }]
+            },
+            {
+                terms: ['work experience', 'experience', 'career', 'previous job', 'worked before', 'employment history', 'jobs'],
+                answer: 'The portfolio lists Information Technology Intern at the City of Cape Town (June 2026–present), Freelance Full-Stack Developer at Amora Digital Solutions (January 2024–May 2026), Waitress at Bootlegger Coffee Company (September–December 2022), and Office Assistant at JNT Engineering (January 2021–June 2022).',
+                links: [{ text: 'View work experience', href: '#experience' }]
+            },
+            {
+                terms: ['skill', 'technology', 'technologies', 'tech stack', 'programming', 'what can mihle', 'expertise', 'c#'],
+                answer: 'The portfolio highlights C#, ASP.NET, JavaScript, HTML, and CSS; SharePoint, Power Automate, Microsoft 365, and Copilot; business analysis and process mapping; and AI, automation, and requirements gathering.',
+                links: [{ text: 'View technical skills', href: '#skills' }]
+            },
+            {
+                terms: ['power automate', 'power platform', 'sharepoint', 'microsoft copilot', 'copilot'],
+                answer: 'Mihle’s portfolio describes work with Power Automate, SharePoint Lists and Document Libraries, Microsoft 365, and Copilot. One recruitment prototype used Power Automate and SharePoint to collect candidate information and update recruitment records.',
+                links: [{ text: 'View internship projects', href: '#activities' }]
+            },
+            {
+                terms: ['ai', 'artificial intelligence', 'generative ai', 'automation', 'minutes agent', 'meeting minutes', 'copilot search'],
+                answer: 'AI-related work in the portfolio includes researching video tools, exploring intelligent search and meeting-minute generation, and demonstrating Copilot search and meeting-minutes proofs of concept. The recruitment concept was documented as AI-assisted with human oversight.',
+                links: [{ text: 'View AI and innovation work', href: '#activities' }]
+            },
+            {
+                terms: ['smartshop', 'sm@rtshop', 'procurement', 'inventory', 'swimlane'],
+                answer: 'The Sm@rtShop work includes mapping the IT equipment procurement workflow and documenting branded-goods inventory requirements and the current inventory process. The portfolio describes stakeholder responsibilities, approvals, handovers, and process-improvement opportunities.',
+                links: [{ text: 'View Sm@rtShop activities', href: '#activities' }]
+            },
+            {
+                terms: ['viki'],
+                answer: 'The VIKI initiative work covered Proof of Concept documentation, AI-assisted promotional video concepts, and site assessments and room measurements to support implementation planning.',
+                links: [{ text: 'View VIKI activities', href: '#activities' }]
+            },
+            {
+                terms: ['hr', 'shortlisting', 'recruitment', 'candidate', 'hiring'],
+                answer: 'The HR Shortlisting Recommendations Agent is documented as an AI-assisted recruitment Proof of Concept. The portfolio describes requirements and workflow documentation, plus a Power Automate and SharePoint prototype for collecting candidate data. It also emphasizes human oversight of recruitment decisions.',
+                links: [{ text: 'View the recruitment Proof of Concept', href: '#activities' }]
+            },
+            {
+                terms: ['cityskylink', 'digital innovation programme', 'fifth place', 'top seven', '44 submissions'],
+                answer: 'CitySkyLink was shortlisted among the top seven submissions in the CS Digital Innovation Programme and placed fifth. The portfolio says the team developed five concepts, with three shortlisted, and contributed to concept development, presentations, marketing, demonstrations, and pitching.',
+                links: [{ text: 'View innovation projects', href: '#activities' }]
+            },
+            {
+                terms: ['hackathon', 'competition', 'winner', 'placed', 'award'],
+                answer: 'The portfolio records CitySkyLink placing fifth in the CS Digital Innovation Programme and Ubuntu Vision placing third in an accessibility hackathon. The City of Cape Town’s EPWP Jobseekers Database Hackathon post names Team Fayeeda as the winner and does not identify Mihle individually.',
+                links: [
+                    { text: 'View innovation projects', href: '#activities' },
+                    { text: 'View City of Cape Town winners post', href: 'https://www.linkedin.com/posts/cityofct_2026-hackathon-looks-to-improve-epwp-recruitment-activity-7483476365762199552-YkBr', target: '_blank' }
+                ]
+            },
+            {
+                terms: ['jobseekers', 'job seekers', 'civic portal', 'epwp'],
+                answer: 'The portfolio describes the Civic Portal concept for improving access to municipal job opportunities and career support. The City of Cape Town’s post identifies Team Fayeeda as the winner of the 2026 EPWP Jobseekers Database Hackathon; the post does not name Mihle individually.',
+                links: [
+                    { text: 'View City of Cape Town winners post', href: 'https://www.linkedin.com/posts/cityofct_2026-hackathon-looks-to-improve-epwp-recruitment-activity-7483476365762199552-YkBr', target: '_blank' },
+                    { text: 'View the portfolio project', href: '#activities' }
+                ]
+            },
+            {
+                terms: ['ubuntu vision', 'accessibility hackathon', 'third place', 'visually impaired'],
+                answer: 'Ubuntu Vision is described as an accessibility-focused concept for visually impaired job seekers, using voice-guided navigation and accessibility-first design. The portfolio says the project placed third in the hackathon.',
+                links: [{ text: 'View hackathon projects', href: '#activities' }]
+            },
+            {
+                terms: ['project', 'projects', 'portfolio work', 'featured work'],
+                answer: 'The portfolio includes a DUT Clinic Management System, STEM Tutoring Hub, websites and digital solutions, and City of Cape Town internship initiatives in process analysis, AI, automation, and innovation.',
+                links: [
+                    { text: 'View featured projects', href: '#projects' },
+                    { text: 'View internship activities', href: '#activities' }
+                ]
+            },
+            {
+                terms: ['about mihle', 'who is mihle', 'tell me about mihle', 'background'],
+                answer: 'Mihle is an ICT Application Development graduate with experience in software development, business analysis, process improvement, and AI-powered solutions. The portfolio presents both software projects and City of Cape Town digital-transformation work.',
+                links: [{ text: 'Read Mihle’s profile', href: '#about' }]
+            },
+            {
+                terms: ['available', 'availability', 'hiring', 'collaboration', 'learnership'],
+                answer: 'The portfolio footer says Mihle is open to learnerships and collaborations. For current availability or opportunities, please confirm directly with Mihle.',
+                links: portfolioContactLinks
+            },
+            {
+                terms: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening'],
+                answer: 'Hello! I can help with information about Mihle’s skills, experience, education, and portfolio projects. What would you like to know?'
+            }
+        ];
+
+        function normalizePortfolioQuestion(question) {
+            return question.toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9+#@]+/g, ' ').trim();
+        }
+
+        function findPortfolioAnswer(question) {
+            const normalizedQuestion = normalizePortfolioQuestion(question);
+            const questionWords = new Set(normalizedQuestion.split(' '));
+            const matches = portfolioAnswers.flatMap((entry) => {
+                const matchedTerm = entry.terms
+                    .map(normalizePortfolioQuestion)
+                    .filter((term) => term.length <= 3
+                        ? questionWords.has(term)
+                        : normalizedQuestion.includes(term))
+                    .sort((first, second) => second.length - first.length)[0];
+                return matchedTerm
+                    ? [{ entry, specificity: matchedTerm.length + (matchedTerm.split(' ').length * 20) + (matchedTerm.length <= 3 ? 20 : 0) }]
+                    : [];
+            }).sort((first, second) => second.specificity - first.specificity);
+
+            if (matches.length > 0) return matches[0].entry;
+
+            return {
+                answer: 'I don’t have enough information about that in Mihle’s CV or portfolio, so I don’t want to guess. You can contact Mihle directly for an accurate answer.',
+                links: portfolioContactLinks
+            };
+        }
+
+        function addPortfolioBotMessage(text, sender, links = []) {
+            const message = document.createElement('div');
+            message.className = sender === 'user'
+                ? 'ml-auto max-w-[90%] rounded-2xl rounded-tr-sm bg-slate-900 p-3 text-sm leading-relaxed text-white dark:bg-lunar-accent dark:text-slate-900'
+                : 'max-w-[90%] rounded-2xl rounded-tl-sm bg-white p-3 text-sm leading-relaxed text-slate-700 shadow-sm dark:bg-slate-800 dark:text-slate-200';
+            message.textContent = text;
+
+            links.forEach((linkData) => {
+                const link = document.createElement('a');
+                link.href = linkData.href;
+                link.textContent = linkData.text;
+                link.className = 'mt-2 block font-semibold text-sky-700 underline underline-offset-2 hover:text-sky-900 dark:text-lunar-accent dark:hover:text-white';
+                if (linkData.target === '_blank') {
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                }
+                message.appendChild(link);
+            });
+
+            portfolioBotMessages.appendChild(message);
+            portfolioBotMessages.scrollTop = portfolioBotMessages.scrollHeight;
+        }
+
+        function submitPortfolioQuestion(question) {
+            const trimmedQuestion = question.trim();
+            if (!trimmedQuestion) return;
+
+            addPortfolioBotMessage(trimmedQuestion, 'user');
+            const response = findPortfolioAnswer(trimmedQuestion);
+            addPortfolioBotMessage(response.answer, 'assistant', response.links || []);
+        }
+
+        portfolioBotForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            submitPortfolioQuestion(portfolioBotInput.value);
+            portfolioBotInput.value = '';
+            portfolioBotInput.focus();
+        });
+
+        document.querySelectorAll('[data-bot-question]').forEach((button) => {
+            button.addEventListener('click', () => submitPortfolioQuestion(button.dataset.botQuestion));
+        });
+
+        function closePortfolioBot(returnFocus) {
+            portfolioBotPanel.hidden = true;
+            portfolioBotToggle.setAttribute('aria-expanded', 'false');
+            if (returnFocus) portfolioBotToggle.focus();
+        }
+
+        portfolioBotToggle.addEventListener('click', () => {
+            const willOpen = portfolioBotPanel.hidden;
+            portfolioBotPanel.hidden = !willOpen;
+            portfolioBotToggle.setAttribute('aria-expanded', String(willOpen));
+            if (willOpen) portfolioBotInput.focus();
+        });
+
+        document.getElementById('portfolioBotClose').addEventListener('click', () => closePortfolioBot(true));
+        portfolioBotMessages.addEventListener('click', (event) => {
+            if (event.target.closest('a[href="#contact"]')) closePortfolioBot(false);
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !portfolioBotPanel.hidden) {
+                closePortfolioBot(true);
+            }
         });
     </script>
 
